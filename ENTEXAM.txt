@@ -1,0 +1,38 @@
+#include<bits/stdc++.h>
+int main()
+{
+    int t;
+    scanf("%d", &t);
+    while(t--)
+    {
+        long long int n, k, e, m;
+        scanf("%lld%lld%lld%lld", &n, &k, &e, &m);
+        long long int arr[100000], val, sum = 0;
+        for(int i=0;i<n-1;i++)
+        {
+            sum = 0;
+            for(int j=0;j<e;j++)
+            {
+                scanf("%lld", &val);
+                sum += val;
+            }
+            arr[i]=sum;
+        }
+        std::sort(arr, arr+(n-1));
+        std::reverse(arr, arr+(n-1));
+        sum = 0;
+        for(int i=0;i<(e-1);i++)
+        {
+            scanf("%lld", &val);
+            sum += val;
+        }
+        long long int x = 1 + arr[k-1] - sum;
+        if(x < m && x > 0)
+            printf("%lld\n", x);
+        else if(x<0)
+            printf("0\n");
+        else
+            printf("Impossible\n");
+    }
+    return 0;
+}

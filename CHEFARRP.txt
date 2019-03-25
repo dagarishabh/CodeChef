@@ -1,0 +1,24 @@
+#include<stdio.h>
+int main()
+{int n,t,i,j,sum,pdt,a[55],count,count1;
+scanf("%d\n",&n);
+while(n--)
+{count1=0;
+scanf("%d\n",&t);
+for(i=0;i<t;i++)
+scanf("%d",&a[i]);
+for(i=0;i<t;i++)
+{
+sum=0;
+pdt=1;
+count=0;
+for(j=i;j<t;j++)
+{
+sum=sum+a[j];
+pdt=pdt*a[j];
+if(sum==pdt)
+count++;}count1+=count;
+}
+printf("%d\n",count1);
+}return 0;
+} 

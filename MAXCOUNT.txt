@@ -1,0 +1,24 @@
+#include<stdio.h>
+ 
+ 
+int main(){
+int t,i;
+ 
+scanf("%d",&t);
+for(i=0;i<t;i++){
+  int n,j,pos=0,v,max=0;
+  int N[10001]={0};
+   scanf("%d",&n);
+ 
+  for(j=0;j<n;j++){
+    scanf("%d",&v);
+    N[v]++;
+  }
+  for(j=0;j<10001;j++){
+ 
+if(N[j]>max){max=N[j];pos=j;}
+ 
+  }
+  printf("%d %d\n",pos,max);
+}
+}

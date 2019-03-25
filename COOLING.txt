@@ -1,0 +1,32 @@
+#include<stdio.h>
+#include<stdlib.h>
+int cmpfunc (const void * a, const void * b)
+{
+   return ( *(int*)a - *(int*)b );
+}
+ 
+int main()
+{
+	int t;
+	scanf("%d",&t);
+	while(t--)
+	{
+		int n,i,j=0,cnt=0;
+		scanf("%d",&n);
+		int rack[n+1],weight[n+1];
+		for(i=0;i<n;i++)scanf("%d",&rack[i]);
+		for(i=0;i<n;i++)scanf("%d",&weight[i]);
+		qsort(rack,n,sizeof(int),cmpfunc);
+		qsort(weight,n,sizeof(int),cmpfunc);
+		for(i=0;i<n;i++)
+		{
+			if(weight[i]>=rack[j])
+			{
+				cnt++;
+				j++;
+			}
+		}
+		printf("%d\n",cnt);	
+	}
+	return 0;
+} 

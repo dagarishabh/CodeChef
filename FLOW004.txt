@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int j;
+    int i,n,r=0,d,e;
+    cin>>j;
+    while(j--)
+    { cin>>n;
+    e=n;
+    while(n>0)
+    {
+        d=n;
+        n=n/10;
+    }
+    cout<<d+e<<"\n";
+    r=0;
+        
+    }
+    return 0;
+}

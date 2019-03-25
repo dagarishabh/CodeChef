@@ -1,0 +1,73 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int n,q,p;
+	    cin>>n>>q>>p;
+	    int a[n],i;
+	    for(i=0;i<n;i++)
+	    cin>>a[i];
+	    while(q--)
+	    {
+	        int t,x,y;
+	        cin>>t>>x>>y;
+	        if(t==1)
+	        {
+	            a[x-1]=y;
+	        }
+	        else if(t==2)
+	        {
+	            int j,l1,l2,l3,l4,m1=0,m2=0,m3=0,m4=0;
+	            long long int k=1;
+	            for(j=x-1;j<y;j++)
+	            {
+	                k=(k*a[j])%p;
+	                
+	            }
+	            k%=p;
+	   //         cout<<k;
+	            for(l1=0;l1<=sqrt(p);l1++)
+	            {
+	                for(l2=0;l2<=sqrt(p);l2++)
+	                {
+                        for(l3=0;l3<=sqrt(p);l3++)
+	                    {
+	                        for(l4=0;l4<=sqrt(p);l4++)
+	                        {
+	                            if((l1*l1+l2*l2+l3*l3+l4*l4)==k)
+	                            {
+	                                cout<<l4<<" "<<l3<<" "<<l2<<" "<<l1<<"\n";
+	                                m1=1;
+	                                break;
+	                            }
+	                        }  
+	                        if(m1==1)
+	                        {
+	                            m2=1;
+	                            break;
+	                        }
+	                    }
+	                    if(m2==1)
+	                    {
+	                         m3=1;
+	                         break;
+	                    }
+	                }
+	                if(m3==1)
+	                {
+	                    m4=1;
+	                    break;
+	                }
+	            }
+	            if(m1!=1)
+	            cout<<"-1\n";
+	            
+	        }
+	    }
+	}
+	return 0;
+}

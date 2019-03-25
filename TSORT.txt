@@ -1,0 +1,15 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t1,a[1000000],k=0,n;
+    cin>>t1;
+    while(t1--){
+	
+	cin>>n;
+	a[k++]=n;
+    }
+    sort(a,a+k);
+    for(int i=0;i<k;i++)
+    cout<<a[i]<<"\n";
+}

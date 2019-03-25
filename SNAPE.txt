@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int m,n;
+        cin>>m>>n;
+        float p,q,r,s;
+        p=(float)m;
+        q=(float)n;
+        r=(float)sqrt(p*p+q*q);
+        if(p>q)
+        s=(float)sqrt(p*p-q*q);
+        else
+        s=sqrt(-p*p+q*q);
+        cout<<s<<" "<<r;
+        cout<<"\n";
+    }
+}

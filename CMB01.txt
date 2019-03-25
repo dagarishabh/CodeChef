@@ -1,0 +1,23 @@
+#include<stdio.h>
+int rev(int a)
+{
+    int re=0;
+    while(a)
+    {
+        re=10*re+a;
+        a=a/10;
+    }
+    return re;
+}
+int main()
+{
+   int x,y,t;
+   scanf("%d",&t);
+   while(t--)
+   {
+   scanf("%d %d",&x,&y);
+   printf("%d\n",rev(rev(x)+rev(y)));
+    }
+    return 0;
+    
+} 

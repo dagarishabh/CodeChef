@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        char s[401],stk[401];
+        cin>>s;
+        int k=0,i,l=strlen(s);
+        for(i=0;i<l;i++)
+        {
+            if(s[i]=='(')
+            continue;
+            else if(s[i]==')')
+            {
+                cout<<stk[k-1];
+                k--;
+            }
+            else if((int)s[i]>=97&&(int)s[i]<=122)
+            cout<<s[i];
+            else
+            {
+                stk[k++]=s[i];
+            }
+        }
+        cout<<"\n";
+    }
+}

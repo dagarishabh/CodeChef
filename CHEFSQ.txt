@@ -1,0 +1,26 @@
+#include<iostream>
+using namespace std;
+int main(){
+	int t;
+	cin >> t;
+	for(;t>0;t--){
+		int n;
+		cin >> n;
+		int ar[n];
+		for(int i=0;i<n;i++){cin >> ar[i];}
+		int f;
+		cin >> f;
+		int se[n];
+		for(int i=0;i<f;i++){cin >> se[i];}		
+		int temp=0,i;		
+		for(i=0;i<f;i++){
+			for(;temp<n-f+i;temp++){
+				if(se[i]==ar[temp]){break;}
+			}
+			if(temp!=n-f+i){cout << "Yes" << endl;break;}
+		}
+		if(i==f)
+			cout << "No" << endl;	
+	}
+ 
+} 

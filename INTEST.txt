@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	long long int n,k,t=0;
+	cin>>n>>k;
+	
+	    while(n--)
+	    {
+	        long long int n1;
+	        cin>>n1;
+	        if(n1%k==0)
+	        t++;
+	    }
+	cout<<t<<endl;
+    
+}

@@ -13,47 +13,35 @@ int main() {
 	    cin>>p[i];
 	    while(m--)
 	    {
-	        long long int k=1;
+	        long long int k=0;
 	        int l1,l2,r1,r2,s;
 	        cin>>l1>>r1>>l2>>r2;
 	        s=r1-l1+1;
-	        int j,a[s],kk=0,z=0;
-	        for(j=l2;j<=r2;j++)
-	        {
-	            kk=0;
-	            for(i=l1;i<=r1;i++)
+	        int a[s];
+	        for(i=0;i<s;i++)
+	        a[i]=p[l1+i];
+	        int yy;
+	        sort(a,a+s);
+	        do{
+	            yy=0;
+	            for(i=0;i<s;i++)
 	            {
-	                if(p[i]<p[j])
-	                kk++;
+	                if(a[i]<p[l2+i])
+	                {
+	                    continue;
+	                }
+	                else
+	                {
+	                    yy=1;break;
+	                }
 	            }
-	            a[z++]=kk;
-	        }
-//	        for(i=0;i<s;i++)
-//	        cout<<a[i]<<" ";
-//	        cout<<endl;
-	        
-	        int yy=0;
-	        sort(a,a+z);
-//	        for(i=0;i<s;i++)
-//	        cout<<a[i]<<" ";
-//	        cout<<endl;
-            
-	        while(yy!=z)
-	        {
-	            if(a[yy]==0)
-	            {
-	            	k=0;
-	            	break;
-	            }
-	            if(a[yy]>0)
-	            k=(k*(a[yy]-yy))00000007;
-	            
-	            yy++;
-	        }
-	        k=k00000007;
+	            if(yy==0)
+	            k++;
+	        }while(next_permutation(a,a+s));
 	        cout<<k<<endl;
+	        
 	    }
 	}
 	
 	return 0;
-} 
+}

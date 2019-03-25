@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+int gcd(int a,int b){
+ 
+	int temp;
+	while(b){
+		temp = b;
+		b = a%b;
+		a = temp;
+	}
+	return a;
+}
+ 
+int main(){
+ 
+	int t,n,m;
+	scanf("%d",&t);
+	while(t--){
+		scanf("%d %d",&n,&m);
+		if(gcd(n,m) == 1)
+			printf("%lld\n",(long long)n*m-n-m+1);
+		else
+			printf("-1\n");
+	}
+ 
+	return 0;
+}

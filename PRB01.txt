@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+int main(){
+	int t,x,i,flag;
+	cin>>t;
+	while(t--)
+	{
+		flag = 0;
+		cin>>x;
+		for(i=2;i*i<=x;i++)
+		{
+			if(x%i==0)
+			{
+				flag = 1;
+				break;
+			}
+		}
+		flag==1?cout<<"no":cout<<"yes";
+		cout<<endl;
+	}
+	return 0;
+} 

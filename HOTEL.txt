@@ -1,0 +1,28 @@
+#include<algorithm>
+#include<iostream>
+using namespace std;
+int main()
+{   int t;
+    cin>>t;
+    while(t--)
+    {   int n;
+        cin>>n;
+        int in[n], out[n];
+        for(int i=0; i<n; i++)
+            cin>>in[i];
+        for(int i=0; i<n; i++)
+            cin>>out[i];
+        sort(in, in+n);
+        sort(out, out+n);
+        int i=0, j=0, g=0, gmax=0;
+        for(; i<n; i++)
+        {   g++;
+            while(out[j]<=in[i])
+            {g--; j++;}
+            if(gmax<g)
+                gmax=g;
+        }
+        cout<<gmax<<endl;
+    }
+    return 0;
+}

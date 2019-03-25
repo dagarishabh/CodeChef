@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t1;
+    cin>>t1;
+    while(t1--){
+	long long int n,t=0;
+	cin>>n;
+	
+	    while(n>0)
+	    {
+	        t+=n;
+	        n=n/10;
+	    }
+	    cout<<t<<endl;}
+}

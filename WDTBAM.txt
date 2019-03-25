@@ -1,0 +1,40 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int i,n,count=0,max1=0;
+        cin>>n;
+        char s[10000];
+        cin>>s;
+        char k[10000];
+        cin>>k;
+        int w[n+2];
+        for(i=0;i<=n;i++)
+        {
+            cin>>w[i];
+        }
+        for(i=0;s[i]!='\0';i++)
+        {
+            if(k[i]==s[i])
+            {
+                count++;
+            }
+        }
+        if(count==n)
+            cout<<w[n];
+        else
+        {
+            for(i=0;i<=count;i++)
+            {
+               max1=max(max1,w[i]);
+            }
+            cout<<max1;
+        }
+        cout<<endl;
+    }
+    return 0;
+}

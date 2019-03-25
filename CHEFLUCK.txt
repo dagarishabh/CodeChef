@@ -1,0 +1,33 @@
+#include<stdio.h>
+ 
+int main()
+{
+    int t,n,b,count,a;
+    scanf("%d", &t);
+    while(t--)
+    {
+        scanf("%d", &n);
+        a = n/7;
+        b = n%7;
+            switch(b)
+            {
+                case 0: count=(7*a);
+                        break;
+                case 1: count=(7*a)-7;
+                        break;
+                case 2: count=(7*a)-14;
+                        break;
+                case 3: count=(7*a)-21;
+                        break;
+                case 4: count=(7*a);
+                        break;
+                case 5: count=(7*a)-7;
+                        break;
+                case 6: count=(7*a)-14;
+                        break;
+            }
+        if(count<0) printf("-1\n");
+        else printf("%d\n", count);
+    }
+    return 0;
+} 

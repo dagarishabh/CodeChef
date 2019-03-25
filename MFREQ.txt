@@ -1,0 +1,106 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+	int n,m;
+	cin>>n>>m;
+	long long int a[n+1],i,d,b[n+1][2];
+	for(i=1;i<=n;i++)
+	{
+	    cin>>a[i];
+	    b[i][1]=0;b[i][0]=0;
+	}
+	d=a[1];
+	b[n][1]=n;
+	b[1][0]=1;
+	for(i=2;i<=n;i++)
+	{
+	    if(d==a[i])
+	    b[i][0]=b[i-1][0];
+	    else
+	    {
+	        b[i][0]=i;
+	        d=a[i];
+	    }
+	}
+	int g;
+	g=n;
+	d=a[n];
+	for(i=n-1;i>=0;i--)
+	{
+	    if(d==a[i])
+	    b[i][1]=g;
+	    else
+	    {
+	        b[i][1]=i;
+	        g=i;
+	        d=a[i];
+	    }
+	}
+	
+	
+//	for(i=1;i<=n;i++)
+//	cout<<b[i][0]<<" "<<b[i][1]<<endl;;
+//	cout<<endl;
+	while(m--)
+	{
+	    long long int l,r,k,k1=0,t=0,mid,mid1,mid2,l1,r1,z;
+	    cin>>l>>r>>k;
+	    if(k>(r-l+1)/2)
+	    {
+	        mid=(l+r)/2;
+	        mid1=mid-1;
+	        mid2=mid+1;
+    	    if(b[mid][1]>=r)
+    	    {
+    	        r1=r;
+    	    }
+    	    else
+    	    r1=b[mid][1];
+    	    if(b[mid][0]<=l)
+    	    l1=l;
+    	    else
+    	    l1=b[mid][0];
+    	    if(r1-l1+1>=k)
+    	    {
+    	        k1=k+1;z=a[mid];
+    	    }
+    	    
+    	    if(b[mid1][1]>=r)
+    	    {
+    	        r1=r;
+    	    }
+    	    else
+    	    r1=b[mid1][1];
+    	    if(b[mid1][0]<=l)
+    	    l1=l;
+    	    else
+    	    l1=b[mid1][0];
+    	    if(r1-l1+1>=k)
+    	    {
+    	        k1=k+1;z=a[mid1];
+    	    }
+    	    if(b[mid2][1]>=r)
+    	    {
+    	        r1=r;
+    	    }
+    	    else
+    	    r1=b[mid2][1];
+    	    if(b[mid2][0]<=l)
+    	    l1=l;
+    	    else
+    	    l1=b[mid2][0];
+    	    if(r1-l1+1>=k)
+    	    {
+    	        k1=k+1;z=a[mid2];
+    	    }
+	    }
+	    //cout<<k1<<endl;
+	    if(k1>=k)
+	    cout<<z<<endl;
+	    else
+	    cout<<"-1\n";
+	}
+	
+	return 0;
+} 

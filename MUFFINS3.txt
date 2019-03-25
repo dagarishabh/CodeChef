@@ -1,0 +1,13 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t1;
+    cin>>t1;
+    while(t1--){
+	long long int n,t=0;
+	cin>>n;
+	
+	    
+	    cout<<n/2+1<<endl;}
+}

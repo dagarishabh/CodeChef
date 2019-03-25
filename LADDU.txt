@@ -1,0 +1,59 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+ 
+int main()
+{
+    int t,rank,laddu,d,i,act=0,op;
+    char str[100];
+    scanf("%d",&t);
+    while(t--)
+    {
+    laddu=0;
+        scanf("%d %s",&act,str);
+       // printf("%s",str);
+        if(strcmp(str,"NON_INDIAN")==0)
+        {
+            d=400;
+        }
+        else
+            d=200;
+        //laddu=300;
+        //printf("%d\n",act);
+        while(act--)
+        {
+           // printf("\noption %d\n",act);
+ 
+       // printf("%d %d",laddu,d);
+ 
+                scanf("%s",str);
+            if(strcmp(str,"CONTEST_WON")==0)
+            {
+            	laddu=laddu+300;
+                scanf("%d",&rank);
+                if (rank<20)
+                {
+                    laddu=laddu+(20-rank);
+                }
+ 
+                //printf("laddues after rank 21=%d",laddu);
+            }
+ 
+            else if(strcmp(str,"TOP_CONTRIBUTOR")==0)
+                laddu=laddu+300;
+            else if(strcmp(str,"BUG_FOUND")==0)
+            {
+                scanf("%d",&rank);
+                if(rank>=50 && rank<=1000)
+                    laddu=laddu+rank;
+            }
+            else if(strcmp(str,"CONTEST_HOSTED")==0)
+                laddu=laddu+50;
+            //printf("%d\n",laddu);
+        }//end of WHILE loop;
+ 
+        op=laddu/d;
+        printf("%d\n",op);
+    }
+    return 0;
+}

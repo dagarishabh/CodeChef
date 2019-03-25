@@ -1,0 +1,16 @@
+#include<iostream>
+using namespace std;
+int main(){
+	char ch;
+	long int c,h,e,f;
+	c=h=e=f=0;
+	while(scanf("%c",&ch)&&(ch!='\n')){
+		switch(ch){
+			case 'C':c++;break;
+			case 'H':if(h<c)h++;break;
+			case 'E':if(e<h)e++;break;
+			case 'F':if(f<e)f++;break;
+		}
+	}
+	printf("%d",f);
+} 

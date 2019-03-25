@@ -1,0 +1,34 @@
+#include <stdio.h>
+ 
+int main(void) {
+	// your code goes here
+	int T;
+	scanf("%d",&T);
+	while(T--)
+	{
+	    int N;
+	    scanf("%d",&N);
+	    int chapters[N],count[500],i,seq=0;
+	    for(i=0;i<500;i++)
+	    count[i]=0;
+	    for(i=0;i<N;i++)
+	    {scanf("%d",&chapters[i]);}
+	    for(i=0;i<N;i++)
+	    {
+	        count[chapters[i]-1]++;
+	        if(chapters[i]==i+1)
+	        seq++;
+	    }
+	    if(seq==N)
+	    {printf("no\n");continue;}
+	    for(i=0;i<N;i++)
+	    {
+	        if(count[i]!=1)
+	        {printf("no\n");break;}
+	    }
+	    if(i==N)
+	    printf("yes\n");
+	    
+	}
+	return 0;
+}

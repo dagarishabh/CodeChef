@@ -1,0 +1,13 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	double n1;
+	int n;
+    cin>>n>>n1;
+    if(n+.5>=n1||n%5!=0)
+    printf("%.2f\n",n1);
+    else
+    printf("%.2f\n",n1-n-.5);
+    
+}

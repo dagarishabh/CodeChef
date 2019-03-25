@@ -1,0 +1,33 @@
+#include <stdio.h>
+using namespace std;
+ 
+int main() {
+    int t, n, k, i;
+    scanf("%d",&t);
+    while(t--){
+        long int area = -1;
+        int a, count[2000] = {0}, max = 0, max1 = 0, min = 5000;
+        scanf("%d",&n);
+        for(i=1; i<=n; i++){
+            scanf("%d",&a);
+            count[a]++;
+            if(max < a)
+            max = a;
+            if(min > a)
+            min = a;
+            if(count[a] >= 2){
+                if(max1 < a)
+                max1 = a;
+            }
+        }
+        for(i=min; i<=max; i++){
+            if(count[i] >= 4 && area < i*i)
+            area = i*i;
+            if(count[i] >=2 && area < max1*i && i != max1)
+            area = max1*i;
+        }
+        printf("%ld\n",area);
+    }
+    return 0;
+}
+ 

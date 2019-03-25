@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+ 
+using namespace std;
+ 
+int main()
+{
+ 
+        ios::sync_with_stdio(false);
+        cin.tie(0);
+        int t,ctr;
+        cin >> t;
+        while(t--)
+        {
+            ctr=0;
+            string a;
+            cin >> a;
+            int l=a.length();
+            for(int i=0;i<l;i++)
+            {
+                if(a[i]=='B')
+                    ctr=ctr+2;
+                if(a[i]=='A'||a[i]=='D'||a[i]=='P'||a[i]=='O'||a[i]=='R'||a[i]=='Q')
+                    ctr=ctr+1;
+            }
+            cout << ctr << "\n";
+        }
+    return 0;
+}

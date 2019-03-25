@@ -1,0 +1,36 @@
+#include<stdio.h>
+//#include<conio.h>
+#include<string.h>
+int main()
+{
+int t,i,s=0,l;
+char a[200000],b[200000],c[200000];
+scanf("%d",&t);
+while(t)
+{
+scanf("%s%s",a,b);
+l=strlen(a);
+for(i=0;i<l;i++)
+{
+if('B'!=a[i]&&'B'!=b[i])
+{
+c[i]='B';
+}
+if('W'!=a[i]&&'W'!=b[i])
+{
+c[i]='W';
+}
+if((a[i]=='W'&&b[i]=='B')||(b[i]=='W'&&a[i]=='B'))
+{
+c[i]='B';
+}
+}
+for(i=0;i<l;i++)
+{
+printf("%c",c[i]);
+}
+printf("\n");
+t--;
+}
+//getch();
+}       

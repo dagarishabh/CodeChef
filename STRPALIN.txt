@@ -1,0 +1,25 @@
+#include <iostream>
+#include <string>
+ 
+using namespace std;
+ 
+bool checkPalin(string Astring, string Bstring){
+	for (int i = 0; i < Astring.length(); i++)
+		for (int j = 0; j < Bstring.length(); j++){
+			if (Astring[i] == Bstring[j]){
+				return true;
+			}
+		}
+	return false;
+}
+ 
+int main(){
+	int no_cases;
+	cin >> no_cases;
+	while (no_cases--){
+		string Astring, Bstring;
+		cin >> Astring >> Bstring;
+		cout << (checkPalin(Astring, Bstring) == true ? "Yes" : "No") << endl;
+	}
+	return 0;
+} 

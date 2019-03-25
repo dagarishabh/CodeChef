@@ -1,0 +1,50 @@
+#include <iostream>
+#include<algorithm>
+#include<string.h>
+using namespace std;
+ 
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        string s;
+        cin>>s;
+        int l=s.length();
+        char arr[l];
+        for(int i=0;i<l;i++)
+        {
+            arr[i]=s[i];
+        }
+        sort(arr,arr+l);
+        int i=0,j;
+        int sum=0,count1;
+        while(i<l)
+        {
+            j=i+1;
+            count1=1;
+            while(j<l)
+            {
+                if(arr[i]==arr[j])
+                    {count1++;
+                    j++;
+                    }
+                else
+                        break;
+ 
+ 
+            }
+            i=j;
+            if(count1>1)
+            {
+                sum+=(count1%2)+(count1/2);
+            }
+            else
+                sum++;
+        }
+        cout<<sum<<endl;
+ 
+    }
+    return 0;
+}

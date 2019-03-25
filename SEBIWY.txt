@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+  int t;
+  scanf("%d",&t);
+  while(t--)
+  {
+    double d,t,sg,fg,se,s,s1,fe;
+    scanf("%lf %lf %lf %lf %lf",&s,&sg,&fg,&d,&t);
+    s1=s+((180*d)/t);
+    se=s1-sg;
+    fe=s1-fg;
+    if(se<0)
+    se*=-1;
+    if(fe<0)
+    fe*=-1;
+    if(se<fe)
+    printf("SEBI\n");
+    else if(se>fe)
+    printf("FATHER\n");
+    else
+    printf("DRAW\n");
+  }
+  return 0;
+} 

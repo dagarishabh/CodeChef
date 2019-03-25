@@ -1,0 +1,23 @@
+# include <stdio.h>
+int main(){
+   long long int t;
+    scanf("%lld",&t);
+    while(t--){
+    long long int n,m,i,j;
+    long long int SUM=0;
+        scanf("%lld %lld",&n,&m);
+        long long int a[11]={0};
+         char b[m];
+        for(i=0;i<n;i++){
+            scanf("%s",b);
+            for(j=0;j<m;j++){
+               if(b[j]=='1')
+                    a[j]++;
+            }
+        }for(j=0;j<m;j++){
+             SUM+=((a[j]*(a[j]-1))/2);
+            }
+      printf("%lld\n",SUM);
+        }
+return 0;
+}

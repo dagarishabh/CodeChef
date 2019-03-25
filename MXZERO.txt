@@ -1,0 +1,28 @@
+#include<stdio.h>
+int main()
+{
+  int t;
+  scanf("%d ",&t);
+  while(t--)
+  {
+  int n;
+  scanf("%d",&n);
+  int i,a[n],x;
+  scanf("%d",&a[0]);
+  x=a[0];
+  for(i=1;i<n;i++)
+  	{
+  		scanf("%d",&a[i]);
+  		x=x^a[i];
+	}
+	int count=0,tmp;
+  for(i=0;i<n;i++)
+  {
+  	tmp=x^a[i];
+  	if(!tmp)
+  	count++;
+  }
+  printf("%d\n",count);
+  }
+  return 0;
+} 
