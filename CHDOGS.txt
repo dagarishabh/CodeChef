@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+    int t;
+    scanf("%d",&t);
+    while(t--)
+    {
+	    double s,v;
+	    scanf("%lf%lf",&s,&v);
+	    double r;
+	    r=(2*s*1.0)/(v*3.0);
+	    printf("%lf\n",r);
+    }
+	 return 0;
+}
+ 

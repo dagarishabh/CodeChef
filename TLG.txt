@@ -1,0 +1,29 @@
+#include<stdio.h>
+int main()
+{
+int i,j,k,n,p,max;
+int sum1,sum2;
+max=sum1=sum2=0;
+scanf("%d",&n);
+int a[n],b[n],d[n],c[n];
+for(i=0;i<n;i++)
+{scanf("%d %d",&a[i],&b[i]);
+ 
+ 
+sum1+=a[i];
+sum2+=b[i];
+if(max<sum1-sum2)
+ 
+{max=sum1-sum2;
+p=1;
+}
+if(max<sum2-sum1)
+{
+    max=sum2-sum1;
+    p=2;
+}
+}
+printf("%d %d",p,max);
+return 0;
+ 
+}

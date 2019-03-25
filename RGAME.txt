@@ -1,0 +1,42 @@
+#include <cstdio>
+ 
+using namespace std;
+ 
+typedef unsigned long long ulong;
+ 
+ulong p = 1000000007;
+ 
+ulong scan() {
+  int n = 0;
+  int c = getchar_unlocked();
+ 
+  while (c < '0' || c > '9')
+    c = getchar_unlocked();
+ 
+  while ('0' <= c && c <= '9') {
+    n *= 10;
+    n += c - '0';
+    c = getchar_unlocked();
+  }
+  return n;
+}
+ 
+int main() {
+  ulong T = scan();
+ 
+  for (auto i = 0; i < T; i++) {
+    ulong N = scan();
+ 
+    ulong q = scan();
+    q = (q * 2) % p;
+ 
+    ulong s = 0;
+    for (ulong j = 0, y = 2; j < N; j++) {
+      ulong t = scan();
+      s = (s * 2 + t * q) % p;
+      q = (q + y * t) % p;
+      y = (y * 2) % p;
+    }
+    printf("%llu\n", s);
+  }
+} 

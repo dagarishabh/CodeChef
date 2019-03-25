@@ -1,0 +1,25 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+int test;
+scanf("%d",&test);
+while(test>0)
+{
+char a[15],b[15];
+int len,i;
+scanf("%s%s",a,b);
+len=strlen(a);
+for(i=0;i<len;i++)
+{
+if(a[i]!=b[i]&&a[i]!='?'&&b[i]!='?')
+break;
+}
+if(i==len)
+printf("Yes\n");
+else
+printf("No\n");
+test--;
+}
+return 0;
+}

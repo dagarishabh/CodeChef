@@ -1,0 +1,25 @@
+#include<stdio.h>
+int main()
+{
+int t,n,a;
+scanf("%d",&a);
+while(a--)
+{
+scanf("%d",&n);
+t=1;
+for(n=n;n>=1;n--)
+{
+ 
+t=n*t;
+ 
+ 
+ 
+ 
+ 
+}
+printf("%d\n",t);
+ 
+ 
+}
+return 0;
+} 

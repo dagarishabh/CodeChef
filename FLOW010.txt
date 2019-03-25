@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+ 
+int main()
+{
+    int T,i;
+    char A;
+scanf("%d",&T);
+for (i=0;i<(T*2);i++)
+{
+    scanf("%c",&A);
+    if (A=='B' || A=='b')
+    {
+        printf("%s\n","BattleShip");
+    }
+        else if (A=='C' || A=='c')
+    {
+        printf("%s\n","Cruiser");
+    }
+        else if (A=='D' || A=='d')
+    {
+        printf("%s\n","Destroyer");
+    }
+        else if (A=='F' || A=='f')
+    {
+        printf("%s\n","Frigate");
+    }
+}
+return 0;
+}

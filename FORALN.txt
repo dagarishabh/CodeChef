@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main(void) {
+	int n,r=0,t=0,k,i,j;
+	scanf("%d",&n);
+	char a[n][101];
+	int b[n];
+	for(i=0;i<n;i++)
+	{
+	    scanf("%s",a[i]);
+	    b[i]=strlen(a[i]);
+	}
+	for(i=0;i<n-1;i++)
+	{
+	    for(j=i;j<n;j++)
+	    {
+	        if(b[i]==b[j])
+	        {
+	            t=0;
+	            for(k=0;k<b[i];k++)
+	            {
+	                if(a[i][k]==a[j][k])
+	                t++;
+	            }
+	            if(t==b[i]-1&&(a[i][b[i]-2]=='k')&&(a[j][b[i]-2]=='k'))
+	            {
+	                if((a[i][b[i]-1]=='i'&&a[j][b[i]-1]=='a')||(a[i][b[i]-1]=='a'&&a[j][b[i]-1]=='i'))
+	                {
+	                    r++;
+	                    b[j]=0;
+	                    break;
+	                }
+	            }
+	        }
+	    }
+	}
+	printf("%d",r);
+	
+	return 0;
+}
+

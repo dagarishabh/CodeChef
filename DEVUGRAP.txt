@@ -1,0 +1,26 @@
+#include <stdio.h>
+int main() {
+    int test_case; long long int n, k, i, count, rem, a;
+    scanf("%d", &test_case);
+    while(test_case--) {
+        scanf("%lld%lld", &n, &k);
+        count=0;
+        for(i=0;i<n;i++) {
+            scanf("%lld", &a);
+            rem=a%k;
+            if(a>=k) {
+                if(rem>=(k-rem)) {
+                    count=count+(k-rem);
+                }
+                else {
+                    count=count+rem;
+                }
+            }
+            else {
+                count=count+(k-rem);
+            }
+        }
+        printf("%lld\n", count);
+    }
+    return 0;
+} 

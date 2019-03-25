@@ -1,0 +1,15 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+    int m,n,r,p,total;
+    cin>>m>>n;
+    r=(m*n)-m-n+1;
+    p=m+n-2;
+    total=r*2+p;
+    cout<<total<<endl;}
+}

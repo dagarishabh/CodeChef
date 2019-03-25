@@ -1,0 +1,21 @@
+#include<stdio.h>
+int main()
+{
+int t,n,i,j,count;
+scanf("%d",&t);
+while(t--)
+{
+ i=1;
+ j=2;
+ count=0;
+ scanf("%d",&n);
+ while(i<=n)
+ {
+  count++;
+  i=i+j;
+  j++;
+ }
+ printf("%d\n",count);
+}
+return 0;
+}

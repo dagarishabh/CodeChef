@@ -1,0 +1,22 @@
+#include <iostream>
+ 
+using namespace std;
+ 
+int main()
+{
+    int n , t, p=0;
+    cin >> n;
+    while(n--){
+        cin >> t;
+        if(t%2==0)
+            p++;
+        else
+            p--;
+    }
+    if(p>0)
+        cout << "READY FOR BATTLE";
+    else
+        cout << "NOT READY";
+ 
+    return 0;
+}

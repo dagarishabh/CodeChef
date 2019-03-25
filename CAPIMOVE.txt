@@ -1,0 +1,71 @@
+#include <bits/stdc++.h>
+#include<stdlib.h>
+using namespace std;
+struct movement
+{
+	long long int pop;
+	int ind;
+};
+int compare(const void *s1,const void *s2)
+{
+	int e1=((struct movement *)s1)->pop;
+	int e2=((struct movement *)s2)->pop;
+	return (e1-e2);
+}
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int vertices, edges, v1, v2;
+ 
+       
+        scanf("%d", &vertices);
+        struct movement m[vertices];int kk;
+        for(int i=0;i<vertices;i++)
+        {
+        
+        	scanf("%lld",&m[i].pop);
+			m[i].ind=i+1;
+		}
+//        printf("Enter the Number of Edges -\n");
+//        scanf("%d", &edges);
+ 		qsort(m,vertices,sizeof(struct movement),compare);
+// 		for(int i=0;i<vertices;i++)
+// 		cout<<m[i].pop<<" "<<m[i].ind<<endl;
+    // Adjacency List is a vector of lists.
+        vector< list<int> > adjacencyList(vertices + 1);
+ 
+//        printf("Enter the Edges V1 -> V2\n");
+     
+        for (int i = 1; i < vertices; ++i) {
+            scanf("%d%d", &v1, &v2);
+         
+        // Adding Edges
+            adjacencyList[v1].push_back(v2);
+            adjacencyList[v2].push_back(v1);
+        }
+ 	
+        for(int i=1;i<=vertices;i++)
+        {
+        	int k=vertices-1;
+        	list<int>::iterator itr = adjacencyList[i].begin();
+ 
+        while (itr != adjacencyList[i].end()) {
+          //cout<<m[k].ind;
+            if(*itr==m[k].ind||i==m[k].ind)
+            {
+            	itr=adjacencyList[i].begin();
+            	k--;
+            }
+            else
+            ++itr;
+        	}
+        	
+        	cout<<m[k].ind<<" ";
+        }
+    }
+    return 0;
+}
+       	

@@ -1,0 +1,33 @@
+#include<stdio.h>
+int main(){
+int i,pos,j,n,a[100002],b[100002];
+while(1<2){
+	scanf("%d",&n);
+	if(n==0)break;
+	for(i=0;i<n;i++){
+		scanf("%d",&a[i]);
+	}j=0; 
+	for(i=1;i<=n;i++){
+		for(pos=0;pos<n;pos++){
+				if(a[pos]==i){
+				b[j]=pos+1;
+				j++;
+				pos=n; 
+				}
+		}
+	} 
+	for(i=0;i<n;i++){
+		
+		if(a[i]==b[i]){
+			if(i+1==n){
+				printf("ambiguous\n");
+			}
+		}else{
+			printf("not ambiguous\n");
+			break;
+		}	
+	}
+	
+		
+}return 0;
+} 

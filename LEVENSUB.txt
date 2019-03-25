@@ -1,0 +1,49 @@
+#include<stdio.h>
+int main()
+{
+	int t;
+	scanf("%d",&t);
+	while(t--)
+	 {
+	    int n;
+	 	scanf("%d",&n);
+	 	int i,a[n],t1,t2,k=0,l=0;
+	 	t1=-2;
+	 	t2=-2;
+	 	for(i=0;i<n;i++)
+	 	{
+	 	    scanf("%d",&a[i]);
+			if(a[i]%2==1)
+	 	 	{
+	 	 		k++;
+	 	 		if(t1<0)
+	 	 		t1=i;
+	 	 		else 
+	 	 		t2=i;
+			  }
+		  }
+		  
+		  if(k%2==0)
+		    printf("%d\n",n);
+		  else 
+		  {
+		      if(n-1-t1>t1)
+		      {
+		          if(n-1-t1>t2)
+		          l=n-1-t1;
+		          else
+		          l=t2;
+		      }
+		      else
+		      {
+	              if(t1>t2)
+		          l=t1;
+	              else
+	              l=t2;
+     	       }
+		   	  printf("%d\n",l);
+			 }  
+	 }
+	 return 0;
+	
+}

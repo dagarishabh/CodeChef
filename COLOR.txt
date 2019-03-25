@@ -1,0 +1,41 @@
+#include<iostream>
+#include<string.h>
+using namespace std;
+int main()
+{
+	long long t,n;
+	cin>>t;
+	while(t--)
+	{
+		long long cr,cb,cg,l;
+		cr=0;
+		cb=0;
+		cg=0;
+		cin>>n;
+		char s[n];
+		cin>>s;
+		l=strlen(s);
+		for(int i=0;i<l;i++)
+		{
+			if(s[i]=='R')
+			cr++;
+			else if(s[i]=='B')
+			cb++;
+			else
+			cg++;
+		}  
+		if(cr==l||cb==l||cg==l)
+	{	cout<<"0"<<endl;
+	}
+		else if(cr>=cb&&cb>=cg||cr>=cg&&cg>=cb)
+	{
+			cout<<cb+cg<<endl; }
+		else if(cb>=cg&&cb>=cr||cb>=cg&&cr>=cg)
+		{
+		cout<<cr+cg<<endl; }
+		else if(cg>=cr&&cr>=cb||cg>=cb&&cb>=cr)
+	{
+			cout<<cr+cb<<endl;}
+	}
+	return 0;
+} 

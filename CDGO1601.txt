@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main(void) {
+	int t;
+	scanf("%d",&t);
+	while(t--)
+	{
+	    int n,b,l,i;
+	    scanf("%d%d%d",&n,&l,&b);
+	    long long int a;
+	    
+	    while(n--&&l>0&&b>0)
+	    {
+	        if(l>b)
+	        l=l-b;
+	        else
+	        b=b-l;
+	    }
+	    a=l*b;
+	    if(n>0||l<=0||b<=0)
+	    printf("No\n");
+	    else
+	    printf("Yes %lld\n",a);
+	}
+	return 0;
+}
+

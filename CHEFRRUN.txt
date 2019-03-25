@@ -1,0 +1,83 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	int t;
+	scanf("%d",&t);
+	while(t--)
+	{
+	    int n,i,j;
+	    scanf("%d",&n);
+	    long long int a[n];
+	    int b[n];
+	   char ind[n];
+	    for(i=0;i<n;i++)
+	    {
+	        scanf("%lld",&a[i]);
+	        b[i]=0;
+	    }
+	    
+	    int r=0,k=0,z=1,count=0,g;
+	    for(i=0;i<n;i++)
+	        {
+	            
+	            k=i;
+	            r=i;
+	            z=1;
+	            if(b[i]!=1||b[i]!=2)
+	            {
+	                memset(ind,'0',n);
+	                while(z)
+	                {
+	                    k=k+a[k]+1;//printf("k=%d,",k);
+	                
+	                    if(k>n-1)
+	                    k=k%n;
+	                if(b[k]==1)
+	                z=0;
+	                
+	                //printf("k=%d,",k);
+	                if(r==k)
+	                {
+	                    count++;
+	                    for(g=0;g<n;g++)
+	                    {
+	                        if(ind[g]=='1')
+	                        {
+	                            b[g]=1;
+	                            count++;
+	                        }
+	                  //      l++;
+	                    }
+	                    b[i]=1;
+	                    z=0;
+	                }
+	               // else
+	                //l++;
+	                if(ind[k]=='1'&&r!=k)
+	                {
+	                    for(g=0;g<n;g++)
+	                    {
+	                        if(ind[g]=='1')
+	                        {
+	                            b[g]=2;
+	                            //count++;
+	                        }
+	                  //      l++;
+	                    }
+	                z=0;
+	                }
+	                ind[k]='1';
+	                
+	            }
+	            }
+	            //else
+	            //l++;
+	            
+	      
+	    }
+	    printf("%d\n",count);
+	}
+	
+	return 0;
+}  

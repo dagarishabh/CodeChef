@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(void) {
+	int n,b,i;
+	long long int k=0;
+	scanf("%d%d",&n,&b);
+	int x[b],y[b];
+	for(i=0;i<b;i++)
+	{
+	    scanf("%d",&x[i]);
+	    x[i]=x[i]-1;
+	}
+	for(i=0;i<b;i++)
+	{
+	    scanf("%d",&y[i]);
+	    y[i]=y[i]-1;
+	}
+	for(i=0;i<b;i++)
+	{
+	    k=k+min(x[i]+y[i],min(x[i]+n-1-y[i],min(n-1-x[i]+y[i],2*n-2-x[i]-y[i])));
+	}
+	printf("%d\n",k);
+	return 0;
+}
+

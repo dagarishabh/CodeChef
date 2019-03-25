@@ -1,0 +1,37 @@
+#include <stdio.h>
+int main(void) {
+	char s[1000];
+	int z=0;
+	while(z!=1)
+	{
+	    int t=0,k=0,i,j,r=0;
+	    scanf("%s",s);
+	    for(i=0;s[i]!='\0';i++)
+	    {
+	        if((int)s[i]>47 && (int)s[i]<58)
+	        t++;
+	        if((int)s[i]>96 && (int)s[i]<123)
+	        k++;
+	        for(j=i+1;s[j]!='\0';j++)
+	        {
+	            if(s[i]==s[j])
+	            {
+	                r++;
+	                break;
+	            }
+	            if(r>0)
+	            break;
+	           
+	        }
+	    }
+	    if(t+k==i&&t!=0&&k!=0&&r==0)
+	    {
+	        printf("Valid\n");
+	        z=1;
+	    }
+	    else
+	    printf("Invalid\n");
+	}
+	return 0;
+}
+

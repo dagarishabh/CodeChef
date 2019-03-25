@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+ 
+int main() {
+	// your code goes here
+	int t;
+	cin>>t;
+	while(t)
+	{
+	    int n;
+	    long int k;
+	    cin>>n>>k;
+	    int a[n];
+	    int i;
+	    for(i=0;i<n;i++)
+	    {
+	        cin>>a[i];
+	    }
+	    if(k>=2)
+	    cout<<"even\n";
+	    else
+	    {
+	        long long int sum=0;
+	        for(i=0;i<n;i++)
+	        sum+=a[i];
+	        if(sum%2==0)
+	        cout<<"odd\n";
+	        else
+	        cout<<"even\n";
+	    }
+	    t--;
+	}
+	return 0;
+}

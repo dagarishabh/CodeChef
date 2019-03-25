@@ -1,0 +1,25 @@
+#include<stdio.h>
+#include<stdlib.h>
+ 
+int main()
+{
+	
+	int test_case, num;
+	
+	
+	scanf("%d",&test_case);
+	
+	while(test_case--)
+	{
+		scanf("%d",&num);
+		
+		if(num<10)
+		{
+			printf("What an obedient servant you are!\n");
+		}
+		else
+		printf("-1\n");
+		
+	}
+	return 0;
+} 

@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(void) {
+	int t;
+    scanf("%d",&t);
+    while(t--)
+    {
+        char s[12347];
+        int i,j=0,k=0,l=0;
+        scanf("%s",s);
+        k=strlen(s);
+        //printf("%d\n",k);
+        if(k==1&&s[0]=='.')
+        printf("a\n");
+        else 
+        {
+            if(k%2!=0&&s[k/2]=='.')
+            s[k/2]='a';
+            for(i=0,j=k-1;i<k/2;i++,j--)
+            {
+                if(s[i]=='.'&&s[j]!='.')
+                s[i]=s[j];
+                else if(s[i]!='.'&&s[j]=='.')
+                s[j]=s[i];
+                else if(s[i]=='.'&&s[j]=='.')
+                s[i]=s[j]='a';
+            }
+            for(i=0,j=k-1;i<k/2;i++,j--)
+            {
+                if(s[i]!=s[j])
+                {
+                    l=1;
+                    break;
+                }
+            }
+            if(l==1)
+            printf("-1\n");
+            else
+            printf("%s\n",s);
+        }
+        
+    }
+	return 0;
+}
+

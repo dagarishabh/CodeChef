@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int t;
+	scanf("%d",&t);
+	while(t--)
+	{
+	    int n;
+	    int i,s,j,k=0,m=0,a[1000000];
+	    int f,d;
+	    scanf("%d",&n);
+	    while(n--)
+	    {
+	        
+	        scanf("%d%d",&f,&d);
+	        
+	        for(i=k;f!=0;f--)
+	        {
+	            a[k]=d;
+	            k++;
+	        }
+	       
+	        
+	    }
+	    //for(i=0;i<k;i++)
+	   // printf("%d,",a[i]);
+	    for(i=0;i<k;i++)
+	    {
+	        s=0;
+	        for(j=i;j<k;j++)
+	        {
+	            s=s+a[j];
+	            if(s%3==0)
+	            m++;
+	        }
+	    }
+	    printf("%d\n",m);
+	}
+	return 0;
+}
