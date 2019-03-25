@@ -1,0 +1,50 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        char s[1000000];
+        cin>>s;
+        int l=strlen(s),i,j,z,z1;
+        int r=0;
+        long long int sum=0,a[l]={0},k=0;
+        for(i=0;i<l;i++)
+        {
+            if(s[i]=='1'&&k==0)
+            {
+               k=1;
+               z=i;
+            }
+            else if(s[i]=='1'&&k==1)
+            {
+                a[r++]=i-z;
+                z=i;
+                
+            }
+            
+        }
+        a[r++]=i-z;
+
+        //for(i=0;i<r;i++)
+        //cout<<a[i]<<" ";
+        //cout<<endl;
+        k=1;
+        for(i=0;i<r;i++)
+        {
+            if(a[i]==1)
+            k++;
+            else
+            {
+                sum+=a[i]*k;
+                k++;
+            }
+            
+        }
+        
+        cout<<sum<<endl;
+    }
+	return 0;
+}

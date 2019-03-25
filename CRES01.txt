@@ -1,0 +1,54 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	   int n;
+	   cin>>n;
+	   int a[n],i,max=0,p=-1,max2=0;
+	   long long int sum=0,sum1=0;
+	   for(i=0;i<n;i++)
+	   {
+	       cin>>a[i];
+	       
+	   }
+	   for(i=0;i<n;i++)
+	   {
+	       if(a[i]>0&&p==-1)
+	       {
+	           p=i;
+	           max=a[i];
+	       }
+	       else if(p!=-1&&a[i]>0)
+	       {
+	           //cout<<"max="<<max<<endl;
+	       
+	           max2=a[i];
+	           int t=min(max,max2);
+	           //cout<<"max2="<<max2<<endl;
+	           for(int j=p+1;j<i;j++)
+	           if(a[j]<t)
+	           sum+=(t-a[j]);
+	           p=i;
+	           max=max2;
+	           max2=0;
+	       }
+	   }
+	   for(i=0;i<n-1;i++)
+	   if(a[i+1]<a[i])
+	   break;
+	   int j;
+	   for(j=n-1;j>=0;j--)
+	   if(a[j]>a[j-1])
+	   break;
+	   int t=min(a[i],a[j]);
+	   for(int k=i+1;k<j;k++)
+	   if(a[k]<t)
+	   sum1+=(t-a[k]);
+	   cout<<min(sum,sum1)+abs(sum-sum1)<<endl;
+	}
+	return 0;
+}

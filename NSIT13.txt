@@ -1,0 +1,37 @@
+#include<stdio.h>
+int main()
+{
+int t=10,temp;
+int arr[10],i,brr[10],j,c;
+while(t--)
+{
+c=1;
+for(i=0;i<10;i++)
+{
+scanf("%d",&arr[i]);
+brr[i]=arr[i]B;
+}
+for(i=0;i<9;i++)
+{
+for(j=i+1;j<10;j++)
+{
+if(brr[i]>brr[j])
+{
+temp=brr[i];
+brr[i]=brr[j];
+brr[j]=temp;
+}
+}
+}
+for(i=0;i<9;i++)
+{
+if(brr[i]==brr[i+1])
+continue;
+else
+c++;
+}
+printf("%d\n",c);
+}
+ 
+return 0;
+}

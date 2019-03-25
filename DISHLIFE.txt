@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n,k;
+        cin>>n>>k;
+        int a[k]={0},i,j=0,z=0;
+        while(n--)
+        {
+            int p,q;
+            cin>>p;
+            while(p--)
+            {
+                cin>>q;
+                if(a[q-1]==0)
+                {
+                    a[q-1]=1;
+                    j++;
+                }
+                
+            }
+            if(j==k)
+            z++;
+            
+        }
+
+        if(j==k&&z>1)
+        cout<<"some\n";
+        else if(j==k)
+        cout<<"all\n";
+        else
+        cout<<"sad\n";
+    }
+	return 0;
+}

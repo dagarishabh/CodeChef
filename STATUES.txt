@@ -1,0 +1,28 @@
+#include<iostream>
+#include<algorithm>
+#include<numeric>
+#include<bits/stdc++.h>
+using namespace std;
+int y[51];
+int main()
+{
+    int s,temp=0,n,result;
+    cin>>n;
+    // for(int i=0;i<n;i++)
+    while(n!=0)
+    {
+        result= 0;
+        for(int j=0;j<n;j++)
+            cin>>y[j];
+        s=accumulate(y,y+n,0);
+        s=s/n;
+        for(int j=0;j<n;j++)
+            result=result+abs(s-y[j]);
+        printf("Set #%d\n",++temp);
+        result=result/2;
+        printf("The minimum number of moves is %d.\n",result);
+        // cout<<"\n";
+        cin>>n;
+    }
+    return 0;
+}  

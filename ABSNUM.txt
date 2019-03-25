@@ -1,0 +1,23 @@
+#include<iostream>
+using namespace std;
+int abs(int n);
+int main()
+{
+int t,n2;
+cin>>t;
+while(t--)
+  {
+  int n1;
+  cin>>n2;
+  n1=abs(n2);
+  cout<<n1<<endl;
+  }
+  return 0;
+ }
+ int abs(int n)
+{
+if(n>=0)
+return n;
+else
+return -n;
+}  

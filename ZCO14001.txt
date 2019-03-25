@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+    int n,i,j,h,l=0,t=0;
+    cin>>n>>h;
+    long long int a[n],s=0,r=0;
+    for(i=0;i<n;i++)
+    cin>>a[i];
+    int c;
+    do
+    {
+        cin>>c;
+        if(c==0)
+        break;
+        switch(c)
+        {
+            case 3:if(a[l]>0&&t!=1)
+                   {
+                       t=1;
+                       a[l]--;
+                   }
+                   break;
+            case 2:if(l!=n-1)
+                    l++;
+                    break;
+            case 4:if(t==1&&a[l]<h)
+                    {
+                        a[l]++;
+                        t=0;
+                    }
+                    break;
+            case 1:if(l!=0)
+                    l--;
+                    break;
+            
+        }
+    }while(1);
+    for(i=0;i<n;i++)
+    cout<<a[i]<<" ";
+	return 0;
+}

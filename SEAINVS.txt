@@ -1,0 +1,59 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int n,m;
+	    cin>>n>>m;
+	    int p[n+1],i;
+	    for(i=1;i<=n;i++)
+	    cin>>p[i];
+	    while(m--)
+	    {
+	        long long int k=1;
+	        int l1,l2,r1,r2,s;
+	        cin>>l1>>r1>>l2>>r2;
+	        s=r1-l1+1;
+	        int j,a[s],kk=0,z=0;
+	        for(j=l2;j<=r2;j++)
+	        {
+	            kk=0;
+	            for(i=l1;i<=r1;i++)
+	            {
+	                if(p[i]<p[j])
+	                kk++;
+	            }
+	            a[z++]=kk;
+	        }
+//	        for(i=0;i<s;i++)
+//	        cout<<a[i]<<" ";
+//	        cout<<endl;
+	        
+	        int yy=0;
+	        sort(a,a+z);
+//	        for(i=0;i<s;i++)
+//	        cout<<a[i]<<" ";
+//	        cout<<endl;
+            
+	        while(yy!=z)
+	        {
+	            if(a[yy]==0)
+	            {
+	            	k=0;
+	            	break;
+	            }
+	            if(a[yy]>0)
+	            k=(k*(a[yy]-yy))00000007;
+	            
+	            yy++;
+	        }
+	        k=k00000007;
+	        cout<<k<<endl;
+	    }
+	}
+	
+	return 0;
+} 

@@ -1,0 +1,66 @@
+#include<stdio.h>
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+		int t;
+		cin>>t;
+		while(t--)
+		{
+		    int n,m;
+		    cin>>n>>m;
+		    char s[11];
+		    cin>>s;
+		    int l,r,u,d,x,y,k=strlen(s),c,c1=0,c2=0;
+		    l=r=u=d=0;
+		    if(n==1&&m==1)
+		    cout<<"unsafe\n";
+		    else
+		    {
+		        for(int i=0;i<n;i++)
+		        {
+		            x=i;
+		            for(int j=0;j<m;j++)
+		            {
+		                y=j;x=i;
+		                c=0;
+		                //cout<<x<<" "<<y<<endl;
+		                for(int g=0;g<k;g++)
+		                {
+		                    
+		                    if(s[g]=='L')
+		                    y=y-1;
+		                    if(s[g]=='R')
+		                    y=y+1;
+		                    if(s[g]=='U')
+		                    x=x-1;
+		                    if(s[g]=='D')
+		                    x=x+1;
+		                    if(x>n-1||y>m-1||x<0||y<0)
+		                    {
+		                        c=1;
+		                        break;
+		                    }
+		                    
+		                }
+		                //cout<<c<<endl;
+		                if(c==0)
+		                {
+		                    c1=1;
+		                    break;
+		                
+		                }
+		                
+		            }
+		            if(c1==1)
+		            {
+		                c2=1;break;
+		            }
+		        }
+		        if(c2==1)
+		        cout<<"safe\n";
+		        else
+		        cout<<"unsafe\n";
+		    }
+		}
+}

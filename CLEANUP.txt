@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int g,m,n;
+        cin>>n>>m;
+        int a[n+1],i;
+        for(i=1;i<=n;i++)
+        a[i]=1;
+        while(m--)
+        {
+            cin>>g;
+            a[g]=0;
+        }
+        g=1;
+        for(i=1;i<=n;i++)
+        {
+            if(a[i]==0)
+            continue;
+            else if(g%2==1)
+            {
+                cout<<i<<" ";
+                g++;
+                a[i]=0;
+            }
+            else g++;
+            
+        }
+        cout<<endl;
+        for(i=1;i<=n;i++)
+        {
+            if(a[i]==1)
+            cout<<i<<" ";
+        }
+        cout<<endl;
+    }
+    return 0;
+}

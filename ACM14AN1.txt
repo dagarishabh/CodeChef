@@ -1,0 +1,22 @@
+#include <stdio.h>
+ 
+int main() {
+	
+	   int t,n,s,d,i;
+	   scanf("%d",&t);
+	   while(t--)
+	   {
+	   scanf("%d%d",&n,&s);    
+	   int a[n];
+	   for(i=0;i<n;i++)
+	    scanf("%d",&a[i]);
+	    d=0;
+	    for(i=0;i<n;i++)
+	    if(a[i]>=s)
+	    d++;
+	    printf("\n%d",d);
+	   }
+	   
+	
+	return 0;
+}

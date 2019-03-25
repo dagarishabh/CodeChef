@@ -1,0 +1,16 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        double r,b,rp,bp,z;
+        cin>>r>>b>>rp;
+        bp=r+b-rp;
+        z=(r*rp+b*bp)/(r+b);
+        cout<<fixed<<setprecision(10)<<z<<endl;
+    }
+}

@@ -1,0 +1,69 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int n,m,i,p,k,g1,g=0;
+	    cin>>n>>m>>p>>k;
+	    float type1,type2,type=0;
+	    if(n%2==0&&m%2==0||p==0)
+	    cout<<"1.000000\n";
+	    else if(n%2==1&&m%2==1)
+	    cout<<"0.000000\n";
+	    
+	    else
+	    {
+	        float kcp=0,kcp1=1.0,g=0,r=-1;
+	        int d=1;
+	        
+//	        cout<<r<<endl;
+            
+//	        cout<<"kcp="<<kcp<<endl;
+	        for(i=0;i<p;i++)
+	        {
+	            kcp=kcp+kcp1;
+	            
+//	            cout<<"kcp="<<kcp<<endl;
+	            
+	            if(kcp>1){
+	            while(kcp/d>1&&kcp1/d>0)
+	            {
+	                d=d*2;
+	                g++;
+	            }    
+	            kcp=kcp/d;
+	            kcp1=kcp1/d;
+	            d=1;
+	            }
+	            kcp1=((kcp1*(k-i))/(i+1));
+//	           
+	            
+	            
+	        }
+//	        cout<<"kcp="<<kcp<<endl;
+//            cout<<g<<endl;
+	        if(g>k)
+	        {
+	            while(g!=k)
+	            {
+	                g--;
+	                kcp=kcp*2;
+	            }
+	        }
+	        else
+	        {
+	            while(g!=k)
+	            {
+	                g++;
+	                kcp=kcp/2;
+	            }
+	        }
+	  //     cout<<kcp<<endl;
+	        cout << fixed << setprecision(6) << (1 - kcp) << "\n";
+	   }
+	}
+	return 0;
+}
