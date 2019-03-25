@@ -1,0 +1,102 @@
+//http://www.geeksforgeeks.org/breadth-first-traversal-for-a-graph/
+#include <bits/stdc++.h>
+using namespace std;
+int a[1000000],answer=0;
+class Graph
+{
+    int V;    // No. of vertices
+    list<pair<int,int> > *adj;    // Pointer to an array containing adjacency lists
+public:
+    Graph(int V);  // Constructor
+    void addEdge(int v, int w,int u); // function to add an edge to graph
+    void BFS();  // prints BFS traversal from a given source s
+};
+ 
+Graph::Graph(int V)
+{
+    this->V = V;
+    adj = new list<pair<int,int> >[V];
+}
+ 
+void Graph::addEdge(int v, int w,int u)
+{
+    adj[v].push_back(make_pair(w,u)); // Add w to v’s list.
+}
+ 
+void Graph::BFS()
+{
+    // Mark all the vertices as not visited
+ 
+    // Create a queue for BFS
+    list<int> queue;
+ 	for(int s=1;s<V;s++)
+ 	{
+ 	
+    // Mark the current node as visited and enqueue it
+    	//cout<<V<<endl;
+    	if(a[s]==1000){
+    	
+    	a[s]=0;
+    	queue.push_back(s);
+ 
+    // 'i' will be used to get all adjacent vertices of a vertex
+    	list<pair<int,int> >::iterator i;
+ 		
+    	while(!queue.empty())
+    	{
+        // Dequeue a vertex from queue and print it
+        	s = queue.front();
+        	//cout << s << " ";
+        	queue.pop_front();
+ 
+        // Get all adjacent vertices of the dequeued vertex s
+        // If a adjacent has not been visited, then mark it visited
+        // and enqueue it
+        	
+  	      for(i = adj[s].begin(); i != adj[s].end(); ++i)
+    	    {
+                if(a[i->first]==1000)
+				{
+					a[i->first]=abs(a[s]-i->second);
+					queue.push_back(i->first);
+				}
+				else if(abs(a[i->first]-a[s])!=i->second)
+				{
+						answer=1;
+				}
+        	}
+        }
+    }}
+}
+int main()
+{
+	int t;
+	cin>>t;
+	while(t--)
+	{
+		int n,q;
+		cin>>n>>q;
+		int i,j,k=0;
+		for(i=0;i<=n;i++)
+		a[i]=1000;
+		Graph g(n+1);
+		while(q--)
+		{
+			cin>>i>>j>>k;
+			if(i==j&&k==1)
+			answer=1;
+			else
+			{
+				g.addEdge(i,j,k);
+				g.addEdge(j,i,k);
+			}
+		}
+		g.BFS();
+		if(answer==0)
+		cout<<"yes\n";
+		else
+		cout<<"no\n";
+		answer=0;
+	}
+	return 0;
+}

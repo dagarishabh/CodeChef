@@ -1,0 +1,39 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(void) {
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    char s[100002];
+	    cin>>s;
+	    int j,i,k1=0,k2=0,k3=0,l=strlen(s);
+	    for(i=0;i<l;i++)
+	    {
+	        if(s[i]=='C')
+	        k1++;
+	        else
+	        break;
+	    }
+	    for(;i<l;i++)
+	    {
+	        if(s[i]=='E')
+	        k1++;
+	        else
+	        break;
+	    }
+	    for(;i<l;i++)
+	    {
+	        if(s[i]=='S')
+	        k1++;
+	        else
+	        break;
+	    }
+	    if(k1==l)
+	    cout<<"yes\n";
+	    else
+	    cout<<"no\n";
+	    
+	}
+	return 0;
+}

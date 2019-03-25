@@ -1,0 +1,130 @@
+//http://www.geeksforgeeks.org/binary-indexed-tree-or-fenwick-tree-2/
+#include <bits/stdc++.h>
+using namespace std;
+long long int getSum(long long int BITree[], int index)
+{
+    long long int sum = 0; // Iniialize result
+ 
+    // index in BITree[] is 1 more than the index in arr[]
+    index = index + 1;
+ 
+    // Traverse ancestors of BITree[index]
+    while (index>0)
+    {
+        // Add current element of BITree to sum
+        sum += BITree[index];
+        sum%=1000000007;
+        // Move index to parent node in getSum View
+        index -= index & (-index);
+    }
+    return sum00000007;
+}
+ 
+// Updates a node in Binary Index Tree (BITree) at given index
+// in BITree.  The given value 'val' is added to BITree[i] and 
+// all of its ancestors in tree.
+void updateBIT(long long int BITree[], int n, int index,long long int val)
+{
+    // index in BITree[] is 1 more than the index in arr[]
+    index = index + 1;
+ 
+    // Traverse all ancestors and add 'val'
+    while (index <= n)
+    {
+       // Add 'val' to current node of BI Tree
+       BITree[index] += val;
+ 
+       // Update index to that of parent in update View
+       index += index & (-index);
+    }
+}
+ 
+// Constructs and returns a Binary Indexed Tree for given
+// array of size n.
+long long int *constructBITree( int n)
+{
+    // Create and initialize BITree[] as 0
+    long long int *BITree = new long long int[n+1];
+    for (int i=1; i<=n; i++)
+        BITree[i] = 0;
+ 
+    // Store the actual values in BITree[] using update()
+    
+ 
+    // Uncomment below lines to see contents of BITree[]
+    //for (int i=1; i<=n; i++)
+    //      cout << BITree[i] << " ";
+ 
+    return BITree;
+}
+ 
+// Driver Program to test above function
+int main()
+{
+    int t;
+	cin>>t;
+	while(t--)
+	{
+	    int n,m,i,j,k=0,l,r;
+	    cin>>n>>m;
+	    long long int *BITTree1, *BITTree2;
+ 
+    // BIT1 to get element at any index
+    // in the array
+      //  cout<<n<<" "<<m<<endl;
+        BITTree2 = constructBITree(n);
+    // BIT 2 maintains the extra term
+    // which needs to be subtracted
+        BITTree1 = constructBITree(m);
+	    
+	    
+        int b[m][3];
+        for(i=0;i<m;i++)
+	    {
+	        cin>>j>>l>>r;
+	        b[i][0]=j;b[i][1]=l;b[i][2]=r;
+	    }
+        for(i=m-1;i>=0;i--)
+	    {
+	        if(b[i][0]==2)
+	        {
+		    int temp=getSum(BITTree1,i);
+	         //   cout<<1+BITTree1[i+1]<<" "<<b[i][1]<<" "<<b[i][2]<<endl;
+	            updateBIT(BITTree1,m,b[i][1]-1,temp+1);
+	            updateBIT(BITTree1,m,b[i][2],-(temp+1));
+	        }
+	    }
+//cout<<endl;	
+      /*  for(j=0;j<m;j++)
+	    cout<<getSum(BITTree1,j)<<" ";
+        cout<<endl;
+        cout<<"1s checking\n";*/
+        updateBIT(BITTree1,m,0,1);
+	 /* for(i=m-1;i>=0;i--)
+	    {
+	        if(b[i][0]==1)
+	        {
+	           // cout<<1+BITTree1[i+1]<<" "<<b[i][1]<<" "<<b[i][2]<<endl;
+	            updateBIT(BITTree1,m,b[i][1]-1,1);
+	            updateBIT(BITTree1,m,b[i][2],-1);
+	        }
+	        
+	    }*/
+	  /*  for(j=0;j<m;j++)
+	    cout<<getSum(BITTree1,j)<<" ";
+        cout<<endl;*/
+       // cout<<t<<endl;
+        for(i=0;i<m;i++)
+        {
+            if(b[i][0]==1)
+            {
+                updateBIT(BITTree2,n,b[i][1]-1,getSum(BITTree1,i));
+                updateBIT(BITTree2,n,b[i][2],-getSum(BITTree1,i));
+            }
+        }
+        for(i=1;i<=n;i++)
+        cout<<getSum(BITTree2,i-1)00000007<<" ";
+        cout<<endl;
+	}
+    return 0;
+}

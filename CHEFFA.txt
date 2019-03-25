@@ -1,0 +1,92 @@
+#include <bits/stdc++.h>
+using namespace std;
+set<vector<int> > m;
+void rec(vector<int> a)
+{
+    int i,j,k,n;
+    n=a.size();
+    //cout<<n<<endl;
+    
+    k=m.size();
+    //cout<<" IN \n";
+    //for(i=0;i<n;i++)
+    //cout<<a[i]<<" ";
+    //cout<<endl;
+    set <vector<int> >::iterator it;
+    //cout<<m.size()<<endl;
+    for(i=0;i<n-1;i++)
+    {
+        vector<int> b;
+        if(a[i]>0&&a[i+1]>0&&i<n-2)
+        {
+            for(j=0;j<n;j++)
+            {
+                if(j==i+2)
+                b.push_back(a[j]+1);
+                else if(j==i||j==i+1)
+                b.push_back(a[j]-1);
+                else
+                b.push_back(a[j]);
+            }
+      //  	cout<<"pushed ";
+		//	for(j=0;j<b.size();j++)
+		//		cout<<b[j]<<" ";
+		//	cout<<"\n";
+        
+		    if(m.find(b)==m.end())
+            {
+            	m.insert(b);
+            	rec(b);	
+			}
+		    //rec(b,b.size());
+        }
+        else if(a[i]>0&&a[i+1]>0&&i==n-2)
+        {
+            for(j=0;j<n;j++)
+            {
+                if(j==i||j==i+1)
+                b.push_back(a[j]-1);
+                else
+                b.push_back(a[j]);
+            }
+            b.push_back(1);
+        //	cout<<"pushed ";
+		//	for(j=0;j<b.size();j++)
+		//		cout<<b[j]<<" ";
+		//	cout<<"\n";
+        
+		    if(m.find(b)==m.end())
+            {
+            	m.insert(b);
+            	rec(b);	
+			}
+		    
+            //rec(b,b.size());
+        }
+       // cout<<m.size()<<endl;
+        
+    }
+}
+int main() {
+	
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int n;
+	    cin>>n;
+	    int i,k;
+	    vector<int> a;
+	    
+	    for(i=0;i<n;i++)
+	    {
+	        cin>>k;
+	        a.push_back(k);
+	    }
+	    m.insert(a);
+	    rec(a);
+	    cout<<m.size()<<endl;
+	    m.clear();
+	}
+	return 0;
+}

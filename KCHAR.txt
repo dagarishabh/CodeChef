@@ -1,0 +1,60 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    long long int k,f=0,z=0;
+	    string s="aacaaccaaaccacca";
+	    char c;
+	    cin>>k;
+	    while(k>16)
+	    {
+	        long long int r=1;
+	        while(r<k)
+	        r=r*2;
+	        if(r==k)
+	        {
+	            z=1;
+	            c='a';
+	            break;
+	        }
+	        else
+	        {
+	            r=r/2;
+	            k=2*r-k;
+	            f++;
+	        }
+	        
+	    }
+	    if(z==1)
+	    {
+	        if(c=='a'&&f%2==0)
+	        cout<<"a\n";
+	        else if(c=='a')
+	        cout<<"c\n";
+	        if(c=='c'&&f%2==0)
+	        cout<<"c\n";
+	        else if(c=='c')
+	        cout<<"a\n";
+	        
+	    }
+	    else
+	    {
+	        c=s[k-1];
+	        if(c=='a'&&f%2==0)
+	        cout<<"a\n";
+	        else if(c=='a')
+	        cout<<"c\n";
+	        if(c=='c'&&f%2==0)
+	        cout<<"c\n";
+	        else if(c=='c')
+	        cout<<"a\n";
+	    }
+	   
+	    
+	}
+	return 0;
+}

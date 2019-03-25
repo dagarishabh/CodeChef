@@ -1,0 +1,105 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int n,m;
+	    cin>>n>>m;
+	    long long int minsal[n],minsal1[n],i,j,k=0,offersal[m],offerjob[m],offerjob1[m],temp,ans=0,ans1=0,ans2=0;
+	    char a[n][m+1],s[m+1],b[n][m+1],c;
+	    for(i=0;i<n;i++)
+	    {
+	        cin>>minsal[i];
+	        minsal1[i]=minsal[i];
+	    }
+	    
+	    
+	    for(i=0;i<m;i++)
+	    cin>>offersal[i]>>offerjob[i];
+	    for(i=0;i<n;i++)
+	    {
+	        cin>>a[i];
+	        strcpy(b[i],a[i]);
+	    }
+	    //for(i=0;i<n-1;i++)
+	    //{
+	      //  for(j=0;j<n-1-i;j++)
+	        //{
+	          //  if(minsal[j]>minsal[j+1])
+	            //{
+	              //  temp=minsal[j];
+	                //minsal[j]=minsal[j+1];
+	  //              minsal[j+1]=temp;
+	    //            strcpy(s,a[j]);
+	      //          strcpy(a[j],a[j+1]);
+	        //        strcpy(a[j+1],s);
+	          //  }
+	  //      }
+	    //}
+	   
+	   // j=n-1;
+	   // reverse(minsal,minsal+n);
+	//    for(i=0;i<n/2;i++)
+	  //  {
+	    //    strcpy(s,a[j]);
+	      //  strcpy(a[j],a[i]);
+	        //strcpy(a[i],s);
+	  //      j--;
+	    //}
+	    //for(i=0;i<n;i++)
+	    //cout<<minsal[i]<<" "<<a[i]<<endl;
+	   /* for(i=0;i<m-1;i++)
+	    {
+	        for(j=0;j<m-1-i;j++)
+	        {
+	            if(offersal[j]>offersal[j+1])
+	            {
+	                temp=offersal[j];
+	                offersal[j]=offersal[j+1];
+	                offersal[j+1]=temp;
+	                temp=offerjob[j];
+	                offerjob[j]=offerjob[j+1];
+	                offerjob[j+1]=temp;
+	            }
+	        }
+	    }
+	    reverse(offersal,offersal+m);
+	    reverse(offerjob,offerjob+m);*/
+	    //for(i=0;i<m;i++)
+	    //cout<<offersal[i]<<" "<<offerjob[i]<<endl;
+	    for(i=0;i<m;i++)
+	    offerjob1[i]=offerjob[i];
+	    for(i=0;i<n;i++)
+	    {
+	            long long int l=0,g=0;
+	            //cout<<a[i]<<endl;
+	            for(k=0;k<m;k++)
+	            {
+	                //cout<<offersal[k]<<" "<<offerjob[k]<<" "<<a[i][k]<<endl;
+	                if(a[i][k]=='1'&&offersal[k]>=minsal[i]&&offerjob[k]>0&&offersal[k]>l)
+	                {
+	                    l=offersal[k];
+	                    g=k;
+	                }
+	                
+	                
+	            }
+	            if(l>0)
+	            {
+	               offerjob[g]--;
+	               ans1+=l;
+	               //cout<<"offersak="<<offersal[k]<<endl;
+	               ans++;
+	            }
+	        
+	    }
+	    for(i=0;i<m;i++)
+	    if(offerjob[i]!=offerjob1[i])
+	    ans2++;
+	    cout<<ans<<" "<<ans1<<" "<<m-ans2<<endl;
+	}
+	return 0;
+}

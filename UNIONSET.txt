@@ -1,0 +1,64 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int n,k;
+	    cin>>n>>k;
+	    int a[n][k+1],i,j,c=0,l;
+	    //cout<<t<<endl;
+	    for(i=0;i<n;i++)
+	    {
+	        cin>>a[i][0];
+	        if(a[i][0]==k)
+	        {
+	            i--;
+	            c+=(n-1);
+	            n--;
+	            for(j=0;j<k;j++)
+	            cin>>l;
+	        }
+	        else
+	        for(j=1;j<=a[i][0];j++)
+	        cin>>a[i][j];
+	    }
+	    //cout<<1<<endl;
+	    int b[k+1];
+	    
+	    for(i=0;i<n;i++)
+	    {
+	        b[0]=a[i][0];
+	        int r=a[i][0];
+	        for(int z=0;z<=k+1;z++)
+	        b[z]=0;
+	        for(int z=1;z<=a[i][0];z++)
+	        {
+	            b[a[i][z]]=1;
+	        }
+	        //cout<<i<<" ";
+	        for(j=i+1;j<n;j++)
+	        {
+	            if(a[i][0]+a[j][0]>=k)
+	            {
+	                for(int z=1;z<=a[j][0];z++)
+	                {
+	                    if(b[a[j][z]]==0)
+	                    r++;
+	                }
+	            }
+	            if(r==k)
+	            {
+	                c++;r=a[i][0];
+	            }
+	            else
+	            r=a[i][0];
+	        }
+	        
+	    }
+	    cout<<c<<endl;
+	}
+	return 0;
+}

@@ -1,0 +1,75 @@
+#include <bits/stdc++.h>
+using namespace std;
+struct s
+{
+    long long int day;
+    long long int lec;
+    long long int sad;
+    bool operator<(const s& rhs) const
+    {
+        return sad < rhs.sad;
+    }
+};
+int main() {
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    long long int i,j,k,n,d,ans=0,f=0;
+	    cin>>n>>d;
+	    struct s a[n],z;
+	    priority_queue<s> pq[d+1];
+	    priority_queue<s> pqm;
+	    for(i=0;i<n;i++)
+	    {
+	        cin>>a[i].day>>a[i].lec>>a[i].sad;
+	        pq[a[i].day].push(a[i]);
+	        ans+=(a[i].lec*a[i].sad);
+	        
+	    }
+	    //cout<<ans<<endl;
+	   
+	    for(i=1;i<d;i++)
+	    {
+	        if(pq[i].size()>0)
+	        {
+	            //cout<<1;
+	            z=pq[i].top();
+	            pq[i].pop();
+	            //cout<<z.sad<<" ";
+	            pqm.push(z);
+	        }
+	        if(pqm.size()>0)
+	        {
+	            //cout<<2;
+	            z=pqm.top();
+	            pqm.pop();
+	            ans-=(z.sad);
+	            z.lec--;
+	            //cout<<z.lec;
+	            if(z.lec>0)
+	            pqm.push(z);
+	            else if(pq[z.day].size()>0)
+	            {
+	                z=pq[z.day].top();
+	     //           cout<<endl<<z.day<<" "<<z.lec<<" "<<z.sad<<endl;
+	                pqm.push(z);
+	                pq[z.day].pop();
+	            }
+	        }
+	    }
+	    if(pq[i].size()>0)
+	    {
+	        z=pq[i].top();
+	        pqm.push(z);
+	        z=pqm.top();
+	        ans-=z.sad;
+	    }
+	    else if(pqm.size()>0)
+	    ans-=pqm.top().sad;
+	    
+	   //cout<<endl;
+	    cout<<max(f,ans)<<endl;
+	}
+	return 0;
+}

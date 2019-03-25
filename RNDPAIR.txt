@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	int t;
+	cin>>t;
+	while(t--)
+	{
+		int n;
+		cin>>n;
+		long long int a[n],i,j,k=0,k1=1;
+		double p;
+		for(i=0;i<n;i++)
+		cin>>a[i];
+		for(i=00;i<n;i++)
+		{
+			for(j=i+1;j<n;j++)
+			{
+				if(a[i]+a[j]>k)
+				{
+					k1=1;
+					k=a[i]+a[j];
+				}
+				else if(a[i]+a[j]==k)
+				{
+					k1++;
+				}
+			}
+		}
+		p=(double)(2.0*k1)/(n*(n-1));
+		printf("%.8lf\n",p);
+	}
+	
+	return 0;
+}

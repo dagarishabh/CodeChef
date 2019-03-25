@@ -1,0 +1,78 @@
+#include <bits/stdc++.h>
+using namespace std;
+int wrongSolver(vector <unsigned int> a) {
+	int n = a.size();
+	vector<unsigned int> prefSum(n), sufSum(n);
+	prefSum[0] = a[0];
+	for (int i = 1; i < n; i++) {
+		prefSum[i] = prefSum[i - 1] + a[i];
+	}
+	sufSum[n - 1] = a[n - 1];
+	for (int i = n - 2; i >= 0; i--) {
+		sufSum[i] = sufSum[i + 1] + a[i];
+	}
+	/*for(int i=0;i<n;i++)
+	if(prefSum[i]==0)
+	cout<<i<<" ";
+	cout<<endl;
+	for(int i=42945;i<42955;i++)
+	cout<<sufSum[i]<<" ";
+	cout<<endl;
+	
+	for(int i=0;i<n;i++)
+	if(sufSum[i]==0)
+	cout<<i<<" ";
+	cout<<endl;*/
+	unsigned int mn = prefSum[0] + sufSum[0];
+	int where = 1;
+	for (int i = 1; i < n; i++) {
+		unsigned int val = prefSum[i] + sufSum[i];
+		if (val < mn) {
+			mn = val;
+			where = i + 1;
+		}
+	}
+	return where;
+}
+int main() {
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int n,k,i,j;
+	    cin>>n;
+	    long long int g=pow(2,32);
+	    //cout<<a<<endl;
+	    unsigned int b=2*1000000000,c=2*147483646+4,d;
+	    d=b+b+c+4;
+	    //cout<<d<<endl;
+	   
+	    vector <unsigned int> a(n);
+	    a[0]=a[1]=b;
+	    a[2]=c;
+	    a[3]=b;
+	    a[4]=b-n+4;
+	    a[5]=2;
+	    for(i=6;i<n;i++)
+	    a[i]=1;
+	    for(i=0;i<4*10000+2949;i++)
+	    a[i]=100000;
+	    a[i]=67296;
+	    i++;
+	    j=i;
+	    for(;i<j+4*10000+2949;i++)
+	    a[i]=100000;
+	    a[i-1]-=(n-80000-2949-2949);
+	    a[i]=2;
+	    i++;
+	    for(;i<n;i++)
+	    a[i]=1;
+	    j=wrongSolver(a);
+	    //cout<<"j="<<j<<endl;
+	    for(i=0;i<n;i++)
+	    cout<<a[i]<<" ";
+	    cout<<endl;
+	}
+	
+	return 0;
+}

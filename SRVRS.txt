@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+using namespace std;
+struct processor
+{
+    int index;
+    int prono;
+    int ptime;
+};
+bool acompare(processor lhs, processor rhs) { return lhs.ptime < rhs.ptime; }
+int main() {
+	int n,q;
+	cin>>n>>q;
+	int i,j,z,x[n],y[n],k[n],g=0;
+	processor p[500000];
+	for(i=0;i<n;i++)
+	{
+	    cin>>x[i]>>y[i]>>k[i];
+	    for(j=0;j<k[i];j++)
+	    {
+	        p[g].index=i+1;
+	        p[g].prono=j+1;
+	        cin>>p[g].ptime;
+	        g++;
+	    }
+	}
+	sort(p,p+g,acompare);
+	int x1,y1,r=0;
+	while(q--)
+	{
+	    cout<<"?\n";
+	    cin>>x1>>y1;
+	    cout<<"! "<<p[r].index<<" "<<p[r].prono<<endl;
+	    r++;
+	    if(r==g)
+	    r=0;
+	}
+	cout<<"end\n";
+}

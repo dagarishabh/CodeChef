@@ -1,0 +1,114 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int n,m;
+	    cin>>n>>m;
+	    int i,j,k=0,a[n][m];
+	    for(i=0;i<n;i++)
+	    for(j=0;j<m;j++)
+	    a[i][j]=0;
+	    if(n==1)
+	    cout<<m<<endl;
+	    else if(n==2)
+	    {
+	        if(m<=2)
+	        cout<<m*n<<endl;
+	        else if(m<=6)
+	        cout<<4<<endl;
+	        else if(m==7)
+	        cout<<6<<endl;
+	        else if(m<=12)
+	        cout<<8<<endl;
+	        else if(m==13)
+	        cout<<10<<endl;
+	        else if(m<=18)
+	        cout<<12<<endl;
+	        else if(m==19)
+	        cout<<14<<endl;
+	        else if(m<=24)
+	        cout<<16<<endl;
+	        else if(m==25)
+	        cout<<18<<endl;
+	        else if(m<=30)
+	        cout<<20<<endl;
+	        else if(m==31)
+	        cout<<22<<endl;
+	        else if(m<=36)
+	        cout<<24<<endl;
+	        else if(m==37)
+	        cout<<26<<endl;
+	        else if(m<=42)
+	        cout<<28<<endl;
+	        else if(m==43)
+	        cout<<30<<endl;
+	        else if(m<=48)
+	        cout<<32<<endl;
+	        else if(m==49)
+	        cout<<34<<endl;
+	        else if(m<=50)
+	        cout<<36<<endl;
+	        
+	    }
+	    else if(n==3)
+	    {
+	        if(m==1)
+	        cout<<n<<endl;
+	        else if(m<=6)
+	        cout<<4<<endl;
+	        else if(m==7)
+	        cout<<6<<endl;
+	        else if(m<=12)
+	        cout<<8<<endl;
+	        else if(m==13)
+	        cout<<10<<endl;
+	        else if(m==14)
+	        cout<<11<<endl;
+	        else if(m<=18)
+	        cout<<12<<endl;
+	        else if(m==19)
+	        cout<<14<<endl;
+	        else if(m==20)
+	        cout<<15<<endl;
+	        else if(m<=24)
+	        cout<<16<<endl;
+	        else if(m==25)
+	        cout<<18<<endl;
+	        else if(m==26)
+	        cout<<19<<endl;
+	        else if(m<=30)
+	        cout<<20<<endl;
+	        else if(m==31)
+	        cout<<22<<endl;
+	        else if(m==32)
+	        cout<<23<<endl;
+	        else if(m<=36)
+	        cout<<24<<endl;
+	        else if(m==37)
+	        cout<<26<<endl;
+	        else if(m==38)
+	        cout<<27<<endl;
+	        else if(m<=42)
+	        cout<<28<<endl;
+	        else if(m==43)
+	        cout<<30<<endl;
+	        else if(m==44)
+	        cout<<31<<endl;
+	        else if(m<=48)
+	        cout<<32<<endl;
+	        else if(m==49)
+	        cout<<34<<endl;
+	        else if(m==50)
+	        cout<<35<<endl;
+	        
+	        
+	        
+	        
+	    }
+	}
+	return 0;
+}

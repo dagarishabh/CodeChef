@@ -1,0 +1,49 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int n,q;
+	cin>>n>>q;
+	long long int a[n],i,j,k=0;
+	for(i=0;i<n;i++)
+	cin>>a[i];
+	while(q--)
+	{
+	    long long int c,n1,k1,l,r,x,p,t,t1;
+	    cin>>c;
+	    if(c==1)
+	    {
+	        cin>>n1>>k1;
+	        t=i=n1-1;
+	        p=a[i];
+	        t1=i+100;
+	        while(i<=t1&&i<n&&k1>0)
+	        {
+	            if(a[i]>p)
+	            {
+	                p=a[i];
+	                k1--;
+	                t=i;
+	                t1=t+100;
+	            }
+	            i++;
+	        }
+	        //if(k==0)
+	        cout<<t+1<<endl;
+	        //else
+	        //cout<<1<<endl;
+	    }
+	    else if(c==2)
+	    {
+	        cin>>l>>r>>x;
+	        for(i=l-1;i<r;i++)
+	        {
+	            a[i]+=x;
+	        }
+	    //    for(i=0;i<n;i++)
+	      //  cout<<a[i]<<" ";
+	        //cout<<endl;
+	    }
+	}
+	return 0;
+}

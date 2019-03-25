@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    string a,a1="";
+	    cin>>a;
+	    long long int i,j=0,k=0,ans=0;;
+	    //cout<<a<<endl;
+	    if(a.length()==1)
+	    cout<<0<<endl;
+	    else{
+	    
+	    for(i=0;i<a.length();i++)
+	    {
+	    	//cout<<"jjj";
+	    	if(k>0&&a1[k-1]==a[i])
+	    	j++;
+	    	else
+	    	{
+	    		j=0;
+	    		k++;
+	    		a1=a1+a[i];
+	    	}
+	    	ans+=j;
+	    }
+	    for(i=0;i<a1.length();i++)
+	    {
+	    	if(i+2<a1.length()&&a1[i]==a1[i+2])
+	    	ans++;
+	    }
+	    cout<<ans<<endl;}
+	}
+	
+	return 0;
+}

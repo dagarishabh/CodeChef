@@ -1,0 +1,64 @@
+//http://www.geeksforgeeks.org/compute-ncr-p-set-2-lucas-theorem/
+#include<bits/stdc++.h>
+using namespace std;
+long long int nCrModpDP(long long int n,long long int r,long long int p)
+{
+    long long int C[r+1];
+    memset(C, 0, sizeof(C));
+ 
+    C[0] = 1; 
+    for (long long int i = 1; i <= n; i++)
+    {
+        for (long long int j = min(i, r); j > 0; j--)
+ 
+            // nCj = (n-1)Cj + (n-1)C(j-1);
+            C[j] = (C[j] + C[j-1])%p;
+    }
+    return C[r];
+}
+long long int nCrModpLucas(long long int n,long long int r,long long int p)
+{
+   // Base case
+   if (r==0)
+      return 1;
+ 
+   
+   int ni = n%p, ri = r%p;
+   return (nCrModpLucas(n/p, r/p, p)*  
+           nCrModpDP(ni, ri, p)) % p;  
+}
+long long int ncrmodp(long long int n,long long int r,long long int p)
+{
+    long long int ans=1,i,j=1;
+    for(i=n;i>=n-r+1;i--)
+    {
+        ans*=i;
+        while(ans%j==0&&j<=r)
+        {
+            ans/=j;
+            j++;
+        }
+        if(j>=r)
+        ans%=p;
+    }
+    return ans;
+}
+int main()
+{
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    long long int s,ans,n,k,m;
+	    cin>>n>>k>>m;
+	    s=ceil((1.0*n)/(1.0*k));
+	    if(n<=1000000)
+	    {
+	        cout<<s<<" "<<ncrmodp(s*k-n+s-1, s-1, m)<<endl;
+	    }
+	    else
+	    cout<<s<<" "<<nCrModpLucas(s*k-n+s-1, s-1, m)<<endl;
+	    
+	}
+	return 0;
+}

@@ -1,0 +1,46 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    char s[1000000];
+	    cin>>s;
+	    int i,j,l,k=1,k1=1,km1=1,km2=1;
+	    l=strlen(s);
+	    for(i=0;i<l;i++)
+	    {
+	        if(s[i]=='<')
+	        {
+	            k++;
+	        }
+	        else if(s[i]=='>')
+	        {
+	            k=1;
+	        }
+	      
+	        if(k>km1)
+	        km1=k;
+	        
+	    }
+	    for(i=0;i<l;i++)
+	    {
+	        if(s[i]=='>')
+	        {
+	            k1++;
+	        }
+	        else if(s[i]=='<')
+	        {
+	            k1=1;
+	        }
+	        
+	        if(k1>km2)
+	        km2=k1;
+	        
+	    }
+	    cout<<max(km1,km2)<<endl;
+	}
+	return 0;
+}

@@ -1,0 +1,20 @@
+#include<bits/stdc++.h>
+using namespace std;
+ 
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        float n,v1,v2,a,b;
+        cin>>n>>v1>>v2;
+        a=(2*n)/v2;
+        b=(sqrt(2)*n)/v1;
+        if(a<b)
+        cout<<"Elevator\n";
+        else
+        cout<<"Stairs\n";
+    }
+    return 0;
+}

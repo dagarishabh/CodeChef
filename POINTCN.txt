@@ -1,0 +1,134 @@
+//http://www.geeksforgeeks.org/greedy-algorithms-set-5-prims-minimum-spanning-tree-mst-2/
+#include <bits/stdc++.h>
+using namespace std;
+unsigned long long s[2];
+unsigned long long xorshift128plus() {
+	unsigned long long x = s[0];
+	const unsigned long long y = s[1];
+	x ^= x << 23;
+	s[1] = x ^ y ^ (x >> 17) ^ (y >> 26);
+	return s[0] = y;
+}
+
+const int MX = 1000;
+
+int C[MX][MX];
+int H[MX][MX];
+#define V 500
+ 
+// A utility function to find the vertex with minimum key value, from
+// the set of vertices not yet included in MST
+long long int minKey(long long int key[], bool mstSet[],long long int n)
+{
+   // Initialize min value
+   long long int min = INT_MAX, min_index;
+ 
+   for (int v = 0; v < n; v++)
+     if (mstSet[v] == false && key[v] < min)
+         min = key[v], min_index = v;
+ 
+   return min_index;
+}
+ 
+// A utility function to print the constructed MST stored in parent[]
+long long int printMST(long long int parent[],long long int n,long long int **graph)
+{
+   long long int a[n][n],i,j;
+  // printf("Edge   Weight\n");
+   for(i=0;i<n;i++)
+    {
+        for(j=0;j<n;j++)
+        a[i][j]=0;
+    }
+   for (int i = 1; i < n; i++)
+    {
+        //printf("%d - %d    %d \n", parent[i], i, graph[i][parent[i]]);
+        a[parent[i]][i]=a[i][parent[i]]=1;
+    }
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<n;j++)
+        cout<<a[i][j];
+        cout<<endl;
+    }
+}
+ 
+// Function to construct and print MST for a graph represented using adjacency
+// matrix representation
+void primMST(long long int *graph[],int n)
+{
+     long long int parent[n]; // Array to store constructed MST
+     long long int key[n];   // Key values used to pick minimum weight edge in cut
+     bool mstSet[n];  // To represent set of vertices not yet included in MST
+ 
+     // Initialize all keys as INFINITE
+     for (int i = 0; i < n; i++)
+        key[i] = INT_MAX, mstSet[i] = false;
+ 
+     // Always include first 1st vertex in MST.
+     key[0] = 0;     // Make key 0 so that this vertex is picked as first vertex
+     parent[0] = -1; // First node is always root of MST 
+ 
+     // The MST will have V vertices
+     for (int count = 0; count < n-1; count++)
+     {
+        // Pick the minimum key vertex from the set of vertices
+        // not yet included in MST
+        long long int u = minKey(key, mstSet,n);
+ 
+        // Add the picked vertex to the MST Set
+        mstSet[u] = true;
+ 
+        // Update key value and parent index of the adjacent vertices of
+        // the picked vertex. Consider only those vertices which are not yet
+        // included in MST
+        for (int v = 0; v < n; v++)
+ 
+           // graph[u][v] is non zero only for adjacent vertices of m
+           // mstSet[v] is false for vertices not yet included in MST
+           // Update the key only if graph[u][v] is smaller than key[v]
+          if (graph[u][v] && mstSet[v] == false && graph[u][v] <  key[v])
+             parent[v]  = u, key[v] = graph[u][v];
+     }
+ 
+     // print the constructed MST
+     printMST(parent, n, graph);
+}
+int main() {
+	int T;
+	scanf("%d", &T);
+	for (int t = 0; t < T; t++) {
+		long long int n, Cmax, Hmax;
+		scanf("%lld %lld %lld", &n, &Cmax, &Hmax);
+		for (int i = 0; i < n; i++) {
+			C[i][i] = 0;
+			scanf("%llu %llu", &s[0], &s[1]);
+			for (int j = i + 1; j < n; j++) {
+				C[i][j] = C[j][i] = xorshift128plus() % (Cmax + 1);
+			}
+		}
+		for (int i = 0; i < n; i++) {
+			scanf("%llu %llu", &s[0], &s[1]);
+			for (int j = 0; j < n; j++) {
+				H[i][j] = xorshift128plus() % (Hmax + 1);
+			}
+		}
+		long long int *graph[n];
+	/*	for(int i=0;i<n;i++)
+    	{
+    		for(int j=0;j<n;j++)
+    		cout<<C[i][j]<<" ";
+    		cout<<endl;
+		}*/
+    	for(int i=0;i<n;i++)
+    	{
+    	  graph[i]=(long long int*)malloc(sizeof(long long int)*n);
+    	}
+		for(int i=0;i<n;i++)
+		for(int j=0;j<n;j++)
+		graph[i][j]=C[i][j];		
+		primMST(graph,n);
+	}
+	
+	return 0;
+}

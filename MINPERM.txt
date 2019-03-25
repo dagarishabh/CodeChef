@@ -1,0 +1,37 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin>>t;
+    while(t--){
+	int n,i,k,j;
+	cin>>n;
+	long long int a[n],z=2;
+	for(i=0;i<n;i++)
+	a[i]=i+1;
+	for(i=0;i<n;i+=2)
+	{
+	    if(i+2<=n)
+	    a[i]=i+2;
+	}
+	z=1;
+	for(i=1;i<n;i+=2)
+	{
+	    
+	    a[i]=i;
+	    
+	}
+	if(n%2==1)
+	{
+	    z=a[n-1];
+	    a[n-1]=a[n-2];
+	    a[n-2]=z;
+	}
+	
+    for(i=0;i<n;i++)
+    cout<<a[i]<<" ";
+    cout<<endl;
+    }
+	return 0;
+}

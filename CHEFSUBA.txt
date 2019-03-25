@@ -1,0 +1,126 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int n,k,p;
+	cin>>n>>k>>p;
+	int a[p+n],i,j,c=0,x,x1,y,y1,b[n-k+p];
+	k=min(n,k);
+	for(i=p;i<p+n;i++)
+	cin>>a[i];
+	//cout<<p<<endl;
+	char s1[p+1];
+	cin>>s1;
+	int max1=-1,n1=p+n,p1=p;
+	/*for(i=p1;i<p1+k;i++)
+	cout<<a[i]<<" ";
+	cout<<endl;*/
+	
+	for(i=p1;i<p1+k;i++)
+	if(a[i]==1)
+	c++;
+	//cout<<c<<endl;
+	j=0;
+	b[p1+j++]=c;
+	for(;i<n1;i++)
+	{
+	    if(a[i]==1&&a[i-k]==1||a[i]==0&&a[i-k]==0)
+	    b[p1+j++]=c;
+	    else if(a[i]==1&&a[i-k]==0)
+	    b[p+j++]=++c;
+	    else
+	    b[p+j++]=--c;
+	}
+	int t;
+	for(i=p1;i<n1-k+1;i++)
+	if(b[i]>max1)
+	{
+	    max1=b[i];
+	    t=i;
+	}
+	/*for(i=p1;i<p1+j;i++)
+	cout<<b[i]<<" ";
+	cout<<endl;*/
+//	for(i=p1;i<n1-k+1;i++)
+//	        cout<<b[i]<<" ";
+//	        cout<<endl;
+	int l=0,z;
+	for(z=0;z<p;z++)
+	{
+	    if(s1[z]=='!')
+	    {
+	        l=0;
+	        a[p1-1]=a[n1-1];
+	        if(a[n1-1]==1)
+	        {
+	            //cout<<"    "<<n1-k-1-p<<endl;
+	            if(b[n1-k]==max1)
+	            {
+	                l=1;
+	                
+	            }
+	            if(a[p1+k-1]==1)
+	            {
+	                b[p1-1]=b[p1];
+	                p1--;
+	                n1--;
+	            }
+	            else
+	            {
+	                b[p1-1]=b[p1]+1;
+	                if(b[p1-1]>max1)
+	                max1=b[p1-1];
+	                p1--;
+	                n1--;
+	            }
+	        }
+	        else if(a[n1-1]==0)
+	        {
+	            l=0;
+	            
+	           if(a[p1+k-1]==1)
+	           {
+	               b[p1-1]=b[p1]-1;
+                   p1--;
+	               n1--;
+	           }
+	           else
+	           {
+	               b[p1-1]=b[p1];
+	               p1--;
+	               n1--;
+	           }
+	            
+	        }
+	        /*for(i=p1;i<n1;i++)
+	        cout<<a[i]<<" ";
+	        cout<<endl;
+	        for(i=p1;i<n1-k+1;i++)
+	        cout<<b[i]<<" ";
+	        cout<<endl;*/
+	    }
+//	    cout<<"l="<<l<<endl;
+	    if(l==1)
+	    {
+	       max1=0;
+	       for(i=p1;i<n1-k+1;i++)
+	       if(b[i]>max1)
+	       {
+	           max1=b[i];
+	           t=i;
+	       }
+	       //cout<<min(k,max1)<<endl;
+	       l=0;
+        }
+//	        cout<<"max="<<max1<<endl;
+	    else if(s1[z]=='?')
+	    {
+	        
+	        cout<<min(k,max1)<<endl;
+	         
+	    }
+	    
+	}
+	return 0;
+}

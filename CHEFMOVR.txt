@@ -1,0 +1,76 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int t;
+    cin>>t;
+    //cout<<t<<endl;
+    while(t--)
+    {
+        //cout<<t<<endl;
+	    int n,d;
+	    cin>>n>>d;
+        long long int a[n],i,j,k=0,sum=0,z,h=0,m=1,j1;
+        for(i=0;i<n;i++)
+        {
+            cin>>a[i];
+            k+=a[i];
+        }
+        //cout<<k<<endl;
+        if(k%n!=0)
+        cout<<-1<<endl;
+        else if(k==0)
+        cout<<0<<endl;
+        else
+        {
+            j=k/n;
+            //cout<<"j="<<j<<endl;
+            //cout<<d<<endl;
+            for(i=0;i<d;i++)
+            {
+                sum=0;
+                z=0;
+                for(j1=i;j1<n;j1+=d)
+                {
+                    sum+=a[j1];
+                    z++;
+                }
+                //cout<<sum<<" "<<z<<endl;
+                if(sum%j==0&&j*z==sum)
+                continue;
+                else
+                break;
+            }
+            //cout<<i<<endl;
+            if(i==d)
+            {
+                for(i=0;i<d;i++)
+                {
+                    for(j1=i;j1<n;j1+=d)
+                    {
+                        if(a[j1]>j)
+                        {
+                            
+                            h+=(a[j1]-j);
+                            a[j1+d]+=(a[j1]-j);
+                          //  cout<<"1="<<h<<endl;
+                        }
+                        else if(a[j1]<j)
+                        {
+                            h+=abs(a[j1]-j);
+                            a[j1+d]-=abs(a[j1]-j);
+                            //cout<<"2="<<h<<endl;
+                        }
+                        
+                    }
+                }
+                cout<<h<<endl;
+            }
+            else
+            cout<<-1<<endl;
+        }
+        
+        
+    }
+	return 0;
+}

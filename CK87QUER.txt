@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    long long int y,i,k=0,ans=0;
+	    cin>>y;
+	    ans=min(y,1ll*700);
+	    for(i=1;i<=ans;i++)
+	    {
+	    	y-=i;
+	    	if(y>0)
+	    	{
+	    		k+=sqrt(y);
+	    	}
+	    	y+=i;
+	    }
+	    
+	   cout<<k<<endl; 
+	}
+	
+	return 0;
+}

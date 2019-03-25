@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int p,q,r;
+	    cin>>p>>q>>r;
+	    long long int a[p],b[q],c[r],i,j,k,a1=0,c1=0,sum=0,mod=1000000007,x=0,z=0;
+	    for(i=0;i<p;i++)
+	    cin>>a[i];
+	    for(i=0;i<q;i++)
+	    cin>>b[i];
+	    for(i=0;i<r;i++)
+	    cin>>c[i];
+	    sort(a,a+p);sort(b,b+q);sort(c,c+r);
+	    for(i=0;i<q;i++)
+	    {
+	        while(a1<p&&a[a1]<=b[i])
+	        {
+	            x+=a[a1];
+	            a1++;
+	        }
+	        while(c1<r&&c[c1]<=b[i])
+	        {
+	            z+=c[c1];
+	            c1++;
+	        }
+	        sum+=((((c1%mod)*(b[i]%mod))%mod+z)%mod)*((((a1%mod)*(b[i]%mod))%mod+x)%mod);
+	        sum%=mod;
+	        //cout<<sum<<endl;
+	    }
+	    cout<<sum%mod<<endl;
+	}
+	return 0;
+}

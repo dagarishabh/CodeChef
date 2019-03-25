@@ -1,0 +1,121 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(void) 
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+		int n,m;
+		cin>>n>>m;
+		int a[100005+1],i,j,k=0,b[m][2],c[100005+1],d;
+		vector< set<int> > p(100005);
+		for(i=0;i<=100005;i++)
+		a[i]=c[i]=0;
+		for(i=0;i<m;i++)
+		{
+		    cin>>k>>d;
+		    p[k].insert(d);
+		}
+		set<int>::iterator it,it1,it2;
+		k=1;
+		set<int> ini,ini2;
+		for ( it=p[0].begin() ; it != p[0].end(); it++)
+	    {
+	    	a[*it]=k++;
+	 	//	ini.insert(*it);  
+	 		ini2.insert(a[*it]);
+		}
+		//for(i=1;i<=n;i++)
+		//cout<<a[i]<<" ";
+		//cout<<endl;
+	   // for(i=0;i<n;i++)
+	    //{
+	    //	cout<<i<<"------";
+	    //	for ( it=p[i].begin() ; it != p[i].end(); it++)
+	    //	cout << " " << *it;
+	    //	cout<<endl;
+		//}
+		int k1=0;
+		//cout<<ini.size()<<endl;
+		for(i=1;i<n;i++)
+		{
+			k1=1;
+		//	cout<<p[i].size()<<endl;
+		//	cout<<"ver="<<i<<endl;
+			if(p[i].size()>0)
+			{
+				for ( it1=p[i].begin() ; it1 != p[i].end(); it1++)
+				{
+					if(a[*it1]!=0)
+					{
+						ini2.erase(a[*it1]);
+					}
+				}
+				for ( it1=p[i].begin() ; it1 != p[i].end(); it1++)
+				{
+				//cout<<*it1<<endl;
+					if(a[*it1]==0)
+					{
+						it2=ini2.begin();
+						a[*it1]=*it2;
+						//ini1.insert(*it1);
+						ini2.erase(*it2);
+					}
+				}
+				ini2.clear();
+				for ( it1=p[i].begin() ; it1 != p[i].end(); it1++)
+				{
+					ini2.insert(a[*it1]);
+				}
+			}
+		}
+		/*if(ini1.size()>0)
+		for(it=ini1.begin();it!=ini1.end();it++)
+		{
+		k1=1;
+		cout<<p[*it].size()<<endl;
+		cout<<"ver="<<*it<<endl;
+		if(!p[*it].empty())
+		for ( it1=p[*it].begin() ; it1 != p[*it].end(); it1++)
+		{
+			//cout<<*it1<<endl;
+			if(a[*it1]==0)
+			{
+				a[*it1]=k1++;
+			}
+		}
+	}
+	cout<<"ed";*/
+	int arsenal=0;
+	for(i=1;i<=n;i++)
+	if(a[i]==0)
+	arsenal=1;
+	int zz=1,ss=0;
+	c[a[n]]=1;
+	for(i=n-1;i>=0;i--)
+	{
+		ss+=zz;
+		if(c[a[i]]==0)
+		{
+			zz++;
+			c[a[i]]=1;
+	//		cout<<"zz="<<zz<<endl;
+		}
+		
+	//	cout<<"ss="<<ss<<endl;
+	}
+	//cout<<"ss="<<ss<<endl;
+	if(m!=ss)
+	arsenal=1;
+	if(arsenal!=1)
+	{
+		for(i=1;i<=n;i++)
+		cout<<a[i]<<" ";
+		cout<<endl;
+	}
+	else
+	cout<<-1<<endl;
+}
+	return 0;
+}

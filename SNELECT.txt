@@ -1,0 +1,51 @@
+# include <stdio.h>
+# include <stdlib.h>
+ 
+int main(){
+    int t=0,s=0,m=0,i=0;
+    char arr[101];
+    scanf("%d",&t);
+    
+    while(t--){
+    	scanf("%s",arr);
+    	m=0;
+    	s=0;
+    	if(arr[0]=='m' && arr[1]=='s'){
+    		
+    		arr[1]='a';
+		}
+		
+    	for(i=1;i<strlen(arr);i++){  		
+			if(arr[i]=='m'){
+				if(arr[i-1]=='s'){
+    				arr[i-1]='a';
+				}else if(arr[i+1]=='s'){
+					arr[i+1]='a';
+					i++;
+				}
+			}
+			
+		}
+		
+		for(i=0;i<strlen(arr);i++){
+		//	printf("%c, \n",arr[i]);
+			if(arr[i]=='m'){
+				m++;
+			}else if(arr[i]=='s'){
+				s++;
+			}
+		}
+	//	printf("m= %d, \n",m);
+	//	printf("s= %d, \n",s);
+		if(s>m){
+			printf("snakes");
+		}else if(s<m){
+				printf("mongooses");
+		}else if(s==m){
+				printf("tie");
+		}
+		printf("\n");
+	}
+	
+    return 0;
+} 

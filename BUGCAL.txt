@@ -1,0 +1,45 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	int t;
+	cin>>t;
+	while(t--)
+	{
+		long long int a,b,s,a1[100],b1[100],i,k=0,k1=0;
+		cin>>a>>b;
+		for(i=0;i<100;i++)
+		a1[i]=b1[i]=0;
+		if(b<=9&&a+b>=a-a+10)
+		cout<<a+b-10<<endl;
+		else if(b<=9&&a+b<a-a+10)
+		cout<<a+b<<endl;
+		else{
+		
+		while(a!=0)
+		{
+			a1[k++]=a;
+			a=a/10;
+		}
+		while(b!=0)
+		{
+			b1[k1++]=b;
+			b=b/10;
+		}
+		for(i=0;i<max(k,k1);i++)
+		{
+			a1[i]+=b1[i];
+			a1[i]%=10;
+		}
+		i=max(k,k1)-1;
+		while(a1[i]==0)
+		i--;
+		if(i==-1)
+		cout<<0<<endl;
+		for(;i>=0;i--)
+		cout<<a1[i];
+		cout<<endl;}
+	}
+	
+	return 0;
+}

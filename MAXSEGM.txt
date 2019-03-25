@@ -1,0 +1,58 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int n;
+	    cin>>n;
+	    long long int i,k=0,j,c[n],w[n],ma=0,z=0,b[n];
+	    for(i=0;i<n;i++)
+	    cin>>c[i];
+	    for(i=0;i<n;i++)
+	    {
+	        cin>>w[i];
+	        if(i==0)
+	        b[i]=w[i];
+	        else
+	        {
+	            b[i]=w[i]+b[i-1];
+	        }
+	    }
+	    
+	    long long int m[n];
+	    for(i=0;i<n;i++)
+	    m[i]=-1;
+	    j=-1;
+	    for(i=0;i<n;i++)
+	    {
+	        if(m[c[i]]==-1)
+	        {
+	            m[c[i]]=i;
+	            if(j>=0)
+	            z=b[i]-b[j];
+	            else
+	            z=b[i];
+	        }
+	        else
+	        {
+	            z=b[i];
+	            j=max(j,m[c[i]]);
+	            m[c[i]]=i;
+	            z-=b[j];
+	          //  m[i]=i;
+	        }
+	   //     cout<<i<<" "<<j<<endl;
+	     //   for(k=0;k<n;k++)
+	     //   cout<<m[k]<<" ";
+	    //    cout<<endl;
+	  //      cout<<z<<endl;;
+	        if(z>ma)
+	        ma=z;
+	    }
+	    cout<<ma<<endl;
+	}
+	return 0;
+}

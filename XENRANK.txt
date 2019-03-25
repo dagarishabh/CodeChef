@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    long long int z,u,v,ans;
+	    cin>>u>>v;
+	    ans=u+1;
+	    z=u+v;
+	    ans+=((z*(z+1))/2);
+	    cout<<ans<<endl;
+	}
+	return 0;
+}

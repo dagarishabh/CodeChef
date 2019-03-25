@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int t;
+    cin>>t;
+    while(t--)
+    {
+   int n;
+   char s[100];
+   cin>>s;
+   n=strlen(s);
+   int i,j,k=0,k1=0;
+   for(i=0;i<n;i++)
+   {
+       if(s[i]=='U')
+       {
+           k++;
+           while(s[i]=='U')
+           i++;
+           i--;
+       }
+       else
+       {
+           k1++;
+           while(s[i]=='D')
+           i++;
+           i--;
+       }
+   }
+   cout<<min(k,k1)<<endl;}
+    return 0;
+}

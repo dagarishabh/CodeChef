@@ -1,0 +1,54 @@
+import java.io.*;
+import java.util.*;
+class abc
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int n,h;
+        n=sc.nextInt();
+        h=sc.nextInt();
+        int i,j;
+        String s;
+        for(i=0;i<h;i++)
+        {
+             j= sc.nextInt();
+            j= sc.nextInt();
+            j= sc.nextInt();
+            j= sc.nextInt();
+        }
+        j= sc.nextInt();
+        for(i=0;i<h;i++)
+        {
+            System.out.println("p b "+i);
+            
+        }
+        int a,b,c;
+        for(i=0;i<n;i++)
+        {
+            System.out.flush();
+            System.out.println("g");
+            
+            a = sc.nextInt();
+            if(a == 0)
+             {
+                 b = sc.nextInt();
+                 c = sc.nextInt();
+                 System.out.println("p s -1 -1");
+               }
+               else if(a == 1)
+               {
+                   b = sc.nextInt();
+                 c = sc.nextInt();
+                 System.out.println("p i -1 -1");
+                }
+            else
+            {
+                c= sc.nextInt();
+            }
+        }
+           System.out.flush();
+            System.out.println("end");
+         
+    }
+}

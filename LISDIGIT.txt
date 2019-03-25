@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+ 
+int main()
+{
+    int T,t,n,a[15],i;
+    long int sum;
+    scanf("%d",&T);
+    for(t=0;t<T;t++)
+    {
+        sum=0;
+        scanf("%d",&n);
+        for(i=0;i<n;i++)
+        {
+            scanf("%d",&a[i]);
+            sum=sum*10+a[i];
+        }
+        printf("%li\n",sum);
+    }
+    return 0;
+}

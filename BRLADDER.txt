@@ -1,0 +1,36 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+ 
+int main()
+{
+ 
+int test;
+cin>>test;
+ 
+for(int t=0 ; t<test ; t++)
+{
+    long long a,b;
+ 
+    cin>>a>>b;
+ 
+    if(a%2!=0)
+    {
+     if(b==a+1 || b==a+2 || b==a-2)
+     cout<<"YES"<<endl;
+     else
+     cout<<"NO"<<endl;
+    }
+ 
+    else if(a%2==0)
+    {
+     if(b==a-1 || b==a-2 || b==a+2)
+     cout<<"YES"<<endl;
+     else
+     cout<<"NO"<<endl;
+    }
+ 
+}
+ 
+ 
+}

@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    long long int n,b,ans=0,p,p1;
+	    cin>>n>>b;
+	    //cout<<n<<" "<<b<<" ";
+	    if(b>=n)
+	    cout<<0<<endl;
+	    else if(b>=n/2)
+	    cout<<n-b<<endl;
+	    else
+	    {
+	        
+	            p=floor((1.0*n)/2);
+	            p1=ceil((1.0*n)/2);
+	            while(p1%b!=0&&p%b!=0)
+	            {
+	                p1++;
+	                p--;
+	            
+	            }
+	        //cout<<p1<<" "<<p<<endl;
+	          ans=p1*p;
+	            ans=ans/b;
+	        
+	        cout<<ans<<endl;
+	    }
+	    
+	}
+	return 0;
+}
